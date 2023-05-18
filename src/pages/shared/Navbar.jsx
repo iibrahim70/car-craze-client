@@ -12,7 +12,7 @@ const Navbar = () => {
   </div>
   
   return (
-    <div className=''>
+    <div className='bg-red-200'>
       <div className="navbar w-[90%] mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -23,13 +23,13 @@ const Navbar = () => {
               {navItems}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <a className="btn btn-ghost normal-case text-xl">Car Craze</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           {navItems}
         </div>
         <div className="navbar-end">
-          <button className="px-4 py-3 border border-[#ef233c] bg-red-600 text-white font-medium uppercase rounded-md">Login</button>
+          <Link to='/login' className="px-4 py-3 border border-[#ef233c] bg-red-600 text-white font-medium uppercase rounded-md">Login</Link>
         </div>
       </div>
     </div>
