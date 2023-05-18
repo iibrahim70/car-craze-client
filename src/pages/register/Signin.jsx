@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import loadAnimation from '../../assets/93385-login.json'
+import loadAnimation from '../../assets/login.json'
 import Lottie from 'lottie-react';
 import { Link } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
@@ -24,7 +24,7 @@ const Signin = () => {
   }
 
   return (
-    <div className="grid grid-cols-2 my-20 min-h-screen">
+    <div className="grid grid-cols-2 min-h-screen mt-40 mb-20">
 
       {/* left side animation */}
       <div className="flex flex-col justify-center items-center">
@@ -34,26 +34,26 @@ const Signin = () => {
       </div>
 
       {/* right side login form */}
-      <div className="bg-green-300 shadow-xl flex flex-col justify-center items-center">
-        <h2 className='text-center text-4xl font-bold'>Login</h2>
+      <div className="shadow-xl flex flex-col justify-center items-center py-10">
+        <h2 className='text-center text-4xl font-bold mb-10'>Login</h2>
         <form onSubmit={handleSignin} className='w-[60%] mx-auto'>
           <div className="form-control">
             <label className="label">
               <span>Email</span>
             </label>
-            <input type="text" name='email' placeholder="Email ID" className="input input-bordered" />
+            <input type="text" name='email' placeholder="Email ID" className="input input-bordered shadow-2xl" />
           </div>
           <div className="form-control">
             <label className="label">
               <span>Password</span>
             </label>
-            <input type="password" name='password' placeholder="Password" className="input input-bordered" />
+            <input type="password" name='password' placeholder="Password" className="input input-bordered shadow-2xl" />
             <label className="label">
               <a href="#" className="text-blue-600 link">Forgot password?</a>
             </label>
           </div>
           <div className="form-control mt-6">
-            <input type="submit" value="Login" className='btn text-white bg-[#FF413]' />
+            <input type="submit" value="Login" className='btn bg-[#2ECC71] text-white hover:bg-black' />
           </div>
         </form>
         <div className="flex items-center mt-5">
