@@ -1,12 +1,14 @@
 import React from 'react';
 import Hero from '../../components/homepage/Hero';
-import Galary from '../../components/homepage/Galary';
+import ShopCategory from '../../components/homepage/ShopCategory';
+import PhotoGalary from '../../components/homepage/PhotoGalary';
 
 const Home = () => {
   return (
     <>
       <Hero/>
-      <Galary/>
+      <PhotoGalary/>
+      <ShopCategory/>
     </>
   );
 };

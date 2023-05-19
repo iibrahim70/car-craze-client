@@ -2,17 +2,18 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import logo from '../../assets/logo/black-logo.ico';
+import ActiveLink from '../../routes/ActiveLink';
 
 const Navbar = () => {
 
   const { user, logOut } = useContext(AuthContext); 
 
   const navItems = <div className='space-x-5'>
-    <Link to='/'>Home</Link>
-    <Link to='alltoys'>All Toys</Link>
-    {user && <Link to='mytoys'>My Toys</Link>}
-    {user && <Link to='addtoys'>Add Toys</Link>}
-    <Link to='blogs'>Blogs</Link>
+    <ActiveLink to='/'>Home</ActiveLink>
+    <ActiveLink to='alltoys'>All Toys</ActiveLink>
+    {user && <ActiveLink to='mytoys'>My Toys</ActiveLink>}
+    {user && <ActiveLink to='addtoys'>Add Toys</ActiveLink>}
+    <ActiveLink to='blogs'>Blogs</ActiveLink>
   </div>
 
   const handleLogout = () => {
