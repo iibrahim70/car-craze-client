@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import loadAnimation from '../../assets/login.json'
+import loginAnimation from '../../assets/animation/login.json'
 import Lottie from 'lottie-react';
 import { Link } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
@@ -29,7 +29,7 @@ const Signin = () => {
       {/* left side animation */}
       <div className="flex flex-col justify-center items-center">
         <div className='w-[70%]'>
-          <Lottie animationData={loadAnimation} loop={true} />
+          <Lottie animationData={loginAnimation} loop={true} />
         </div>
       </div>
 

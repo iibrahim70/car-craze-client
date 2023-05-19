@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
-import logo from '../../assets/black-logo.ico';
+import logo from '../../assets/logo/black-logo.ico';
 
 const Navbar = () => {
 
@@ -38,8 +38,18 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           {navItems}
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end gap-10">
+          
+          {user && <div className="dropdown dropdown-end tooltip tooltip-bottom" data-tip={user?.displayName}>
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full" >
+                <img src={user?.photoURL} />
+              </div>
+            </label>
+          </div>}
+
           {user ? <button onClick={handleLogout} className="btn bg-[#2ECC71] text-white hover:bg-black">Logout</button> : <Link to='/signin' className="btn bg-[#2ECC71] text-white hover:bg-black">Signin</Link>}
+
         </div>
       </div>
     </div>
