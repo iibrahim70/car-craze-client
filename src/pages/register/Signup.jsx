@@ -17,7 +17,7 @@ const Signup = () => {
     const password = form.password.value; 
     const photoUrl = form.photoUrl.value;
 
-    createUser(email, password)
+    createUser(email, password, name, photoUrl)
       .then(res => {
         const user = res.user;
         console.log(user);
@@ -26,7 +26,7 @@ const Signup = () => {
   }
 
   return (
-    <div className="grid grid-cols-2 min-h-screen mt-40 mb-20">
+    <div className="grid grid-cols-2 min-h-screen mt-[144px] mb-20">
 
       {/* left side animation */}
       <div className="flex flex-col justify-center items-center">

@@ -24,7 +24,7 @@ const Signin = () => {
   }
 
   return (
-    <div className="grid grid-cols-2 min-h-screen mt-40 mb-20">
+    <div className="grid grid-cols-2 min-h-screen mt-[144px] mb-20">
 
       {/* left side animation */}
       <div className="flex flex-col justify-center items-center">
