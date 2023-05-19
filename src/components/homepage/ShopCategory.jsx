@@ -4,12 +4,14 @@ import 'react-tabs/style/react-tabs.css';
 
 const ShopCategory = () => {
   return (
-    <div className='mb-20'>
+    <div className='mb-10 md:mb-20'>
+      <h2 className='text-center text-4xl md:text-4xl font-bold'>Shop by Category</h2>
+      <p className='text-center mt-5 mb-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br className='hidden md:flex' /> Ab pariatur praesentium illo, accusamus iure mollitia <br className='hidden md:flex' /> ipsum reprehenderit expedita veritatis cum.</p>
       <Tabs>
         <TabList>
-          <Tab style={{fontWeight: '600'}}>Sports Car</Tab>
-          <Tab style={{fontWeight: '600' }}>Mini Fire Truck</Tab>
-          <Tab style={{fontWeight: '600' }}>Police Car</Tab>
+          <Tab>Sports Car</Tab>
+          <Tab>Mini Fire Truck</Tab>
+          <Tab>Police Car</Tab>
         </TabList>
 
         <TabPanel>
