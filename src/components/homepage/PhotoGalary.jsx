@@ -7,7 +7,7 @@ import miniTruck1 from '../../assets/mini truck/1.jpg'
 
 const PhotoGalary = () => {
   return (
-    <div className='mb-20'>
+    <div className='mb-10 md:mb-20'>
       <h2 className='text-center text-4xl md:text-4xl font-bold'>Photo Galary</h2>
       <p className='text-center mt-5 mb-10 border-y border-[#212121] py-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br className='hidden md:flex'/> Ab pariatur praesentium illo, accusamus iure mollitia <br className='hidden md:flex' /> ipsum reprehenderit expedita veritatis cum.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10">
