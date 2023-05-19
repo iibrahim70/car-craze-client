@@ -64,7 +64,7 @@ const Signup = () => {
             <input type="text" name='photoUrl' placeholder="Photo URL" className="input input-bordered shadow-2xl" />
           </div>
           <div className="form-control mt-6">
-            <input type="submit" value="signup" className='btn bg-[#2ECC71] text-white hover:bg-black' />
+            <input type="submit" value="signup" className='btn bg-[#2ECC71] text-[#F2F6FC] hover:bg-black' />
           </div>
         </form>
         <div className="flex items-center mt-5">
