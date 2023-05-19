@@ -34,7 +34,7 @@ const Navbar = () => {
               {navItems}
             </ul>
           </div>
-          <img className='h-8' src={logo} alt="" />
+          <Link to='/'><img className='h-8' src={logo} alt="" /></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           {navItems}
