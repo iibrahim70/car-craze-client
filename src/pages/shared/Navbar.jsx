@@ -8,11 +8,11 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext); 
 
   const navItems = <div className='space-x-5'>
-    <Link>Home</Link>
-    <Link>All Toys</Link>
-    <Link>My Toys</Link>
-    <Link>Add Toy</Link>
-    <Link>Blogs</Link>
+    <Link to='/'>Home</Link>
+    <Link to='alltoys'>All Toys</Link>
+    {user && <Link to='mytoys'>My Toys</Link>}
+    {user && <Link to='addtoys'>Add Toys</Link>}
+    <Link to='blogs'>Blogs</Link>
   </div>
 
   const handleLogout = () => {
@@ -22,7 +22,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='fixed top-0 w-full shadow-lg overflow-y-hidden bg-white z-10'>
+    <div className='fixed top-0 pb-0 pt-0 w-full shadow-lg bg-white z-10'>
       <div className="navbar w-[90%] mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
