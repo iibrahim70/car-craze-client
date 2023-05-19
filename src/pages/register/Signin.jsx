@@ -53,7 +53,7 @@ const Signin = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <input type="submit" value="Login" className='btn bg-[#2ECC71] text-[#F2F6FC] hover:bg-black' />
+            <input type="submit" value="Login" className='btn bg-[#2ECC71] text-[#F2F6FC] hover:bg-black rounded-sm' />
           </div>
         </form>
         <div className="flex items-center mt-5">
