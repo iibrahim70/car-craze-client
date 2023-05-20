@@ -1,14 +1,41 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
-
+import { AuthContext } from '../../providers/AuthProvider';
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 
 const AddToys = () => {
+
+  const {user} = useContext(AuthContext); 
+
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = newToys => {
+
+    fetch('http://localhost:5000/toys', {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json' 
+      },
+      body: JSON.stringify(newToys)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if(data.insertedId){
+          Toastify({
+            text: "Your Toy Is Added Successfully",
+            position: "center", 
+            style: {
+              background: "linear-gradient(to right, #1f5ebc, #0083d6, #00a1cb, #00b9a4, #2ecc71)",
+            }
+          }).showToast();
+        }
+      })
+  };
 
   return (
     <div className='mt-[104px] mb-10 md:mt-[144px] md:mb-20'>
-      <div className="max-w-xl mx-auto shadow-lg p-10 min-h-screen">
+      <div className="max-w-xl mx-auto shadow-lg p-10">
         <form onSubmit={handleSubmit(onSubmit)}>
           
           <div className="mb-4">
@@ -29,10 +56,7 @@ const AddToys = () => {
 
           <div className="mb-4">
             <label htmlFor="sellerEmail" className="block mb-1 font-medium">Seller Email</label>
-            <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:ring"{...register('sellerEmail', { required: true })} />
-            {errors.sellerEmail && (
-              <span className="text-red-500 text-sm">This field is required</span>
-            )}
+            <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:ring" defaultValue={user?.email} {...register('sellerEmail')} />
           </div>
 
           <div className="mb-4">
@@ -91,3 +115,6 @@ const AddToys = () => {
 };
 
 export default AddToys;
+
+
+
