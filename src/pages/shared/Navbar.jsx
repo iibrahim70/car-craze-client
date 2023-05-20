@@ -11,8 +11,8 @@ const Navbar = () => {
   const navItems = <div className='space-x-5'>
     <ActiveLink to='/'>Home</ActiveLink>
     <ActiveLink to='alltoys'>All Toys</ActiveLink>
-    {user && <ActiveLink to='mytoys'>My Toys</ActiveLink>}
-    {user && <ActiveLink to='addtoys'>Add Toys</ActiveLink>}
+    {<ActiveLink to='mytoys'>My Toys</ActiveLink>}
+    {<ActiveLink to='addtoys'>Add Toys</ActiveLink>}
     <ActiveLink to='blogs'>Blogs</ActiveLink>
   </div>
 
