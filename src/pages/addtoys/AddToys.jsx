@@ -96,9 +96,9 @@ const AddToys = () => {
             <div className="mb-4">
               <label htmlFor="subCategory" className="block mb-[7px] font-medium">Sub-category</label>
               <select className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('subCategory', { required: true })}>
-                <option value="Math Toys">Sports Car</option>
-                <option value="Language Toys">Mini Fire Truck</option>
-                <option value="Science Toys">Police Car</option>
+                <option value="Sports Car">Sports Car</option>
+                <option value="Mini Fire Truck">Mini Fire Truck</option>
+                <option value="Police Car">Police Car</option>
               </select>
               {errors.subCategory && (
                 <span className="text-red-500 text-sm">This field is required</span>

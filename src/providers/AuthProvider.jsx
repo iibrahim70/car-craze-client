@@ -1,9 +1,11 @@
 import React, { createContext, useEffect, useState } from 'react';
-import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut} from 'firebase/auth'; 
+import {GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from 'firebase/auth'; 
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext(); 
 const auth = getAuth(app); 
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider(); 
 
 const AuthProvider = ({ children }) => {
   const  [user, setUser] = useState(null); 
@@ -19,16 +21,15 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
-  const updateDisplayName = (displayName) => {
+  const googleSignIn = () => {
     setLoading(true);
-    return auth.currentUser.updateProfile({ displayName });
-  };
+    return signInWithPopup(auth, googleProvider);
+  }
 
-  const updatePhotoUrl = (photoUrl) => {
+  const githubSignIn = () => {
     setLoading(true);
-    return auth.currentUser.updateProfile({ photoURL: photoUrl });
-  };
-
+    return signInWithPopup(auth, githubProvider);
+  }
 
   const logOut = () => {
     setLoading(true);
@@ -36,35 +37,25 @@ const AuthProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        // User is signed in
-        console.log(currentUser);
-        const { displayName, photoURL } = currentUser;
-        setUser({
-          uid: currentUser.uid,
-          email: currentUser.email,
-          displayName: displayName || '',
-          photoURL: photoURL || '',
-        });
-      } else {
-        // User is signed out
-        setUser(null);
-      }
+    const unsubscribe = onAuthStateChanged(auth, loggedUser => {
+      console.log('logged in user inside auth state observer', loggedUser);
+      setUser(loggedUser);
       setLoading(false);
-    });
+    })
     return () => {
       unsubscribe();
-    };
-  }, []);
+    }
+  }, [])
 
   const authInfo = {
+    auth,
     user, 
+    setUser,
     loading,
     createUser,
     signIn,
-    updateDisplayName,
-    updatePhotoUrl,
+    googleSignIn,
+    githubSignIn,
     logOut,
   }
 

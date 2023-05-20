@@ -2,45 +2,35 @@ import React, { useContext } from 'react';
 import loginAnimation from '../../assets/animation/login.json'
 import Lottie from 'lottie-react';
 import { Link } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
+import { useForm } from "react-hook-form";
 import { AuthContext } from '../../providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Signup = () => {
+  const { createUser, setUser, auth } = useContext(AuthContext); 
 
-  const { createUser, updateDisplayName, updatePhotoUrl } = useContext(AuthContext); 
-
-  const handleSignup = e => {
-    e.preventDefault();
-    const form = e.target;
-    const displayName = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    const photoUrl = form.photoUrl.value;
-
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = user => {
+    const { name, email, password, photoUrl } = user;
+    
     createUser(email, password)
       .then((res) => {
         const user = res.user;
         console.log(user);
+        setUser(user);
 
-        // Update display name and photo URL
-        updateDisplayName(displayName)
-          .then(() => {
-            console.log('Display name updated');
-          })
-          .catch((error) => {
-            console.error('Error updating display name:', error);
-          });
-
-        updatePhotoUrl(photoUrl)
-          .then(() => {
-            console.log('Photo URL updated');
-          })
-          .catch((error) => {
-            console.error('Error updating photo URL:', error);
-          });
+        updateProfile(auth.currentUser, {
+          displayName: name, photoURL: photoUrl
+        }).then(() => {
+          // Profile updated!
+          // ...
+        }).catch((error) => {
+          // An error occurred
+          // ...
+        });
       })
       .catch((err) => console.log(err));
-  };
+  }
 
   return (
     <div className="grid grid-cols-2 min-h-screen mt-[144px] mb-20">
@@ -55,38 +45,44 @@ const Signup = () => {
       {/* right side login form */}
       <div className="shadow-xl flex flex-col justify-center items-center py-10">
         <h2 className='text-center text-4xl font-bold mb-10'>Signup</h2>
-        <form onSubmit={handleSignup} className='w-[60%] mx-auto'>
-          <div className="form-control">
-            <label className="label">
-              <span>Name</span>
-            </label>
-            <input type="text" name='name' placeholder="Name" className="input input-bordered shadow-2xl" />
+        <form onSubmit={handleSubmit(onSubmit)} className='w-[70%] mx-auto'>
+          <div className="mb-4">
+            <label htmlFor="sellerName" className="block mb-1 font-medium">Name</label>
+            <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('name', { required: true })} />
+            {errors.name && (
+              <span className="text-red-500 text-sm">This field is required</span>
+            )}
           </div>
-          <div className="form-control">
-            <label className="label">
-              <span>Email</span>
-            </label>
-            <input type="text" name='email' placeholder="Email ID" className="input input-bordered shadow-2xl" />
+
+          <div className="mb-4">
+            <label htmlFor="sellerName" className="block mb-1 font-medium">Email</label>
+            <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('email', { required: true })} />
+            {errors.email && (
+              <span className="text-red-500 text-sm">This field is required</span>
+            )}
           </div>
-          <div className="form-control">
-            <label className="label">
-              <span>Password</span>
-            </label>
-            <input type="password" name='password' placeholder="Password" className="input input-bordered shadow-2xl" />
+
+          <div className="mb-4">
+            <label htmlFor="sellerName" className="block mb-1 font-medium">Password</label>
+            <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]" type='password'{...register('password', { required: true })} />
+            {errors.password && (
+              <span className="text-red-500 text-sm">This field is required</span>
+            )}
           </div>
-          <div className="form-control">
-            <label className="label">
-              <span>Photo URL</span>
-            </label>
-            <input type="text" name='photoUrl' placeholder="Photo URL" className="input input-bordered shadow-2xl" />
+
+          <div className="mb-4">
+            <label htmlFor="sellerName" className="block mb-1 font-medium">Photo URL</label>
+            <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('photoUrl', { required: true })} />
+            {errors.photoUrl && (
+              <span className="text-red-500 text-sm">This field is required</span>
+            )}
           </div>
-          <div className="form-control mt-6">
-            <input type="submit" value="signup" className='btn bg-[#2ECC71] text-[#F2F6FC] hover:bg-black rounded-sm' />
-          </div>
+
+          <input className="btn w-full rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base" type="submit" value="signup" />
         </form>
         <div className="flex items-center mt-5">
           <p className="mr-2">Signin with</p>
-          <FaGoogle className="" />
+          <button className='btn bg-[#2ECC71] text-[#F2F6FC] hover:bg-black rounded-sm'>Google</button>
         </div>
         <p className='mt-5'>Already have an account? <Link className='text-[#FF4136]' to='/signin'>Signin</Link></p>
       </div>

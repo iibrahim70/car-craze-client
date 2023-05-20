@@ -28,7 +28,7 @@ const AllToysTable = ({toy}) => {
         </td>
 
         <th>
-          <button className="btn rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base">details</button>
+          <button className="btn rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base">view details</button>
         </th>
 
       </tr>
