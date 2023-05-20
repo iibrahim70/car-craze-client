@@ -1,7 +1,9 @@
 import React from 'react';
 import Accordion from '../../components/accordion/Accordion';
+import useTitle from '../../components/hooks/useTitle';
 
 const Blogs = () => {
+  useTitle('Blogs')
   return (
     <div className="container mt-[104px] mb-10 md:mt-[144px] md:mb-20">
       <Accordion

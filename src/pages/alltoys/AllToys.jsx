@@ -1,10 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AllToysTable from './AllToysTable';
+import useTitle from '../../components/hooks/useTitle';
 
 const AllToys = () => {
+  useTitle('All Toys'); 
   const toys = useLoaderData(); 
-  console.log(toys);
   return (
     <div className='mt-[104px] mb-10 md:mt-[144px] md:mb-20'>
       <h1>total toys {toys.length}</h1>
