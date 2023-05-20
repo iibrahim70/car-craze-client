@@ -7,23 +7,40 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Signup = () => {
 
-  const { createUser } = useContext(AuthContext); 
+  const { createUser, updateDisplayName, updatePhotoUrl } = useContext(AuthContext); 
 
   const handleSignup = e => {
     e.preventDefault();
-    const form = e.target; 
-    const name = form.name.value; 
-    const email = form.email.value; 
-    const password = form.password.value; 
+    const form = e.target;
+    const displayName = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
     const photoUrl = form.photoUrl.value;
 
     createUser(email, password)
-      .then(res => {
+      .then((res) => {
         const user = res.user;
         console.log(user);
+
+        // Update display name and photo URL
+        updateDisplayName(displayName)
+          .then(() => {
+            console.log('Display name updated');
+          })
+          .catch((error) => {
+            console.error('Error updating display name:', error);
+          });
+
+        updatePhotoUrl(photoUrl)
+          .then(() => {
+            console.log('Photo URL updated');
+          })
+          .catch((error) => {
+            console.error('Error updating photo URL:', error);
+          });
       })
-      .catch(err => console.log(err)); 
-  }
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="grid grid-cols-2 min-h-screen mt-[144px] mb-20">

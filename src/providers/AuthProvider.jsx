@@ -19,27 +19,52 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
+  const updateDisplayName = (displayName) => {
+    setLoading(true);
+    return auth.currentUser.updateProfile({ displayName });
+  };
+
+  const updatePhotoUrl = (photoUrl) => {
+    setLoading(true);
+    return auth.currentUser.updateProfile({ photoURL: photoUrl });
+  };
+
+
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
   }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, currentuser => {
-      setUser(currentuser); 
-      console.log('current user', currentuser);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        // User is signed in
+        console.log(currentUser);
+        const { displayName, photoURL } = currentUser;
+        setUser({
+          uid: currentUser.uid,
+          email: currentUser.email,
+          displayName: displayName || '',
+          photoURL: photoURL || '',
+        });
+      } else {
+        // User is signed out
+        setUser(null);
+      }
       setLoading(false);
-    }); 
+    });
     return () => {
-      return unsubscribe(); 
-    }
-  }, [])
+      unsubscribe();
+    };
+  }, []);
 
   const authInfo = {
     user, 
     loading,
     createUser,
     signIn,
+    updateDisplayName,
+    updatePhotoUrl,
     logOut,
   }
 
