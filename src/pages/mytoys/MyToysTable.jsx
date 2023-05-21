@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const MyToysTable = ({ toys, handleDelete }) => {
-  const { _id, sellerName, subCategory, price, quantity } = toys;
+const MyToysTable = ({ toys, handleDelete, handleUpdate }) => {
+  const { _id, sellerName, toyName, subCategory, price, quantity } = toys;
 
   return (
     <>
       <tr>
-
         <td>
           <h4 className="font-bold">{sellerName}</h4>
         </td>
 
         <td>
-          <h4 className="font-bold">helo</h4>
+          <h4 className="font-bold">{toyName}</h4>
         </td>
 
         <td>
@@ -32,12 +31,29 @@ const MyToysTable = ({ toys, handleDelete }) => {
         </th>        
         
         <th>
-          <button className="btn rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base">update</button>
+          <button onClick={() => handleUpdate(_id)} className="btn rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base">update</button>
         </th>
-
       </tr>
     </>
   );
 };
 
 export default MyToysTable;
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+

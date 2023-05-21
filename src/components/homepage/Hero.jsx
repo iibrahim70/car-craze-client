@@ -1,6 +1,7 @@
 import React from 'react';
 import Lottie from 'lottie-react';
 import carAnimation from '../../assets/animation/car.json'; 
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
 
 const Hero = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AllToysTable = ({ toys }) => {
-  const { sellerName, subCategory, price, quantity } = toys; 
+  const { sellerName, toyName, subCategory, price, quantity } = toys; 
 
   return (
     <>
@@ -12,7 +12,7 @@ const AllToysTable = ({ toys }) => {
         </td>
 
         <td>
-          <h4 className="font-bold">helo</h4>
+          <h4 className="font-bold">{toyName}</h4>
         </td>
 
         <td>

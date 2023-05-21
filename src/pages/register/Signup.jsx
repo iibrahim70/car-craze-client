@@ -9,7 +9,7 @@ import { updateProfile } from 'firebase/auth';
 const Signup = () => {
   const { createUser, setUser, auth } = useContext(AuthContext); 
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const onSubmit = user => {
     const { name, email, password, photoUrl } = user;
     
@@ -18,7 +18,8 @@ const Signup = () => {
         const user = res.user;
         console.log(user);
         setUser(user);
-
+        reset(); 
+        
         updateProfile(auth.currentUser, {
           displayName: name, photoURL: photoUrl
         }).then(() => {
@@ -47,7 +48,7 @@ const Signup = () => {
         <h2 className='text-center text-4xl font-bold mb-10'>Signup</h2>
         <form onSubmit={handleSubmit(onSubmit)} className='w-[70%] mx-auto'>
           <div className="mb-4">
-            <label htmlFor="sellerName" className="block mb-1 font-medium">Name</label>
+            <label className="block mb-1 font-medium">Name</label>
             <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('name', { required: true })} />
             {errors.name && (
               <span className="text-red-500 text-sm">This field is required</span>
@@ -55,7 +56,7 @@ const Signup = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="sellerName" className="block mb-1 font-medium">Email</label>
+            <label className="block mb-1 font-medium">Email</label>
             <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('email', { required: true })} />
             {errors.email && (
               <span className="text-red-500 text-sm">This field is required</span>
@@ -63,7 +64,7 @@ const Signup = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="sellerName" className="block mb-1 font-medium">Password</label>
+            <label className="block mb-1 font-medium">Password</label>
             <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]" type='password'{...register('password', { required: true })} />
             {errors.password && (
               <span className="text-red-500 text-sm">This field is required</span>
@@ -71,7 +72,7 @@ const Signup = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="sellerName" className="block mb-1 font-medium">Photo URL</label>
+            <label className="block mb-1 font-medium">Photo URL</label>
             <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('photoUrl', { required: true })} />
             {errors.photoUrl && (
               <span className="text-red-500 text-sm">This field is required</span>
