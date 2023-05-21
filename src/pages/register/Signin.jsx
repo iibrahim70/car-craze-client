@@ -9,7 +9,7 @@ const Signin = () => {
 
   const {signIn, googleSignIn, setUser} = useContext(AuthContext); 
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const onSubmit = user => {
     const {email, password} = user;
     signIn(email, password)
@@ -17,6 +17,7 @@ const Signin = () => {
         const user = res.user;
         console.log(user);
         setUser(user);
+        reset();
       })
       .catch(err => console.log(err));
   }
@@ -47,7 +48,7 @@ const Signin = () => {
         <h2 className='text-center text-4xl font-bold mb-10'>Login</h2>
         <form onSubmit={handleSubmit(onSubmit)} className='w-[70%] mx-auto'>
           <div className="mb-4">
-            <label htmlFor="sellerName" className="block mb-1 font-medium">Email</label>
+            <label className="block mb-1 font-medium">Email</label>
             <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('email', { required: true })} />
             {errors.email && (
               <span className="text-red-500 text-sm">This field is required</span>
@@ -55,7 +56,7 @@ const Signin = () => {
           </div>
           
           <div className="mb-4">
-            <label htmlFor="sellerName" className="block mb-1 font-medium">Password</label>
+            <label className="block mb-1 font-medium">Password</label>
             <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]" type='password'{...register('password', { required: true })} />
             {errors.password && (
               <span className="text-red-500 text-sm">This field is required</span>

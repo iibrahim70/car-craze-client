@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from '../../assets/logo/white-logo.ico';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import '../../../src/global.css';
 
 
@@ -28,7 +27,7 @@ const Footer = () => {
         </div>
         <div className='text-[#F2F6FC]'>
           <p className="font-bold mb-2 uppercase text-[#F2F6FC]">Legal</p>
-          <a href="#">
+          {/* <a href="#">
             <FaFacebookF className="text-2xl" />
           </a>
           <a href="#">
@@ -39,7 +38,7 @@ const Footer = () => {
           </a>
           <a href="#">
             <FaLinkedinIn className="text-2xl"/>
-          </a>
+          </a> */}
         </div>
       </div>
     </div>
