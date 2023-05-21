@@ -1,7 +1,7 @@
 import React from 'react';
 
-const AllToysTable = ({ toys }) => {
-  const { sellerName, subCategory, price, quantity } = toys; 
+const MyToysTable = ({ toys, handleDelete }) => {
+  const { _id, sellerName, subCategory, price, quantity } = toys;
 
   return (
     <>
@@ -28,7 +28,11 @@ const AllToysTable = ({ toys }) => {
         </td>
 
         <th>
-          <button className="btn rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base">view details</button>
+          <button onClick={() => handleDelete(_id)} className="btn rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base">delete</button>
+        </th>        
+        
+        <th>
+          <button className="btn rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base">update</button>
         </th>
 
       </tr>
@@ -36,4 +40,4 @@ const AllToysTable = ({ toys }) => {
   );
 };
 
-export default AllToysTable;
+export default MyToysTable;

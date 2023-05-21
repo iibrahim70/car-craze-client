@@ -5,12 +5,11 @@ import useTitle from '../../components/hooks/useTitle';
 
 const AllToys = () => {
   useTitle('All Toys'); 
-  const toys = useLoaderData(); 
+  const allToys = useLoaderData(); 
   return (
     <div className='mt-[104px] mb-10 md:mt-[144px] md:mb-20'>
-      <h1>total toys {toys.length}</h1>
-      <div className="overflow-x-auto w-full">
-        <table className="table w-full">
+      <h1>total toys {allToys.length}</h1>
+        <table className="table w-full z-0">
           {/* table header */} 
           <thead>
             <tr>
@@ -26,11 +25,10 @@ const AllToys = () => {
           {/* table body */}
           <tbody>
             {
-              toys.map(toy => <AllToysTable key={toy._id} toy={toy}/>)
+            allToys.map(toys => <AllToysTable key={toys._id} toys={toys}/>)
             }
           </tbody>
         </table>
-      </div>
     </div>
   );
 };
