@@ -42,7 +42,7 @@ const AddToys = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 md:gap-x-10 md:gap-y-2'>
             <div className="mb-4">
               <label htmlFor="sellerName" className="block mb-1 font-medium">Seller Name</label>
-              <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('sellerName', { required: true })} />
+              <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]" defaultValue={user?.displayName}{...register('sellerName', { required: true })} />
               {errors.sellerName && (
                 <span className="text-red-500 text-sm">This field is required</span>
               )}
@@ -50,13 +50,16 @@ const AddToys = () => {
 
             <div className="mb-4">
               <label htmlFor="sellerEmail" className="block mb-1 font-medium">Seller Email</label>
-              <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]" defaultValue={user?.email} {...register('sellerEmail')} />
+              <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]" defaultValue={user?.email}{...register('sellerEmail', { required: true })} />
+              {errors.sellerEmail && (
+                <span className="text-red-500 text-sm">This field is required</span>
+              )}
             </div>
 
             <div className="mb-4">
               <label htmlFor="sellerName" className="block mb-1 font-medium">Toy Name</label>
               <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('toyName', { required: true })} />
-              {errors.sellerName && (
+              {errors.toyName && (
                 <span className="text-red-500 text-sm">This field is required</span>
               )}
             </div>

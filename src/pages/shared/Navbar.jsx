@@ -41,8 +41,8 @@ const Navbar = () => {
         </div>
         <div className="navbar-end gap-10">
           
-          {user && <div className="dropdown dropdown-end tooltip tooltip-bottom" data-tip={user?.displayName}>
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          {user && <div className="tooltip tooltip-left" data-tip={user?.displayName}>
+            <label className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full" >
                 <img src={user?.photoURL} />
               </div>
