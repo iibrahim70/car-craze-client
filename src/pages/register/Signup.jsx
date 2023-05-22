@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 
 const Signup = () => {
   const { createUser, setUser, auth } = useContext(AuthContext); 
@@ -30,7 +32,16 @@ const Signup = () => {
           // ...
         });
       })
-      .catch((err) => console.log(err));
+      .catch(err => {
+        console.log(err);
+        Toastify({
+          text: (err.message),
+          position: "center",
+          style: {
+            background: "linear-gradient(to right, #1f5ebc, #0083d6, #00a1cb, #00b9a4, #2ecc71)",
+          }
+        }).showToast();
+      });
   }
 
   return (
