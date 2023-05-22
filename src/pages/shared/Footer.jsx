@@ -13,32 +13,21 @@ const Footer = () => {
         </div>
         <div className='text-[#F2F6FC]'>
           <p className="font-bold mb-2 uppercase text-[#F2F6FC]">Services</p>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <a className="link link-hover">Sports Car</a>
+          <a className="link link-hover">Mini Fire Truck</a>
+          <a className="link link-hover">Police Car</a>
         </div>
         <div className='text-[#F2F6FC]'>
           <p className="font-bold mb-2 uppercase text-[#F2F6FC]">Company</p>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <a className="link link-hover">Privacy Policy</a>
         </div>
         <div className='text-[#F2F6FC]'>
-          <p className="font-bold mb-2 uppercase text-[#F2F6FC]">Legal</p>
-          {/* <a href="#">
-            <FaFacebookF className="text-2xl" />
-          </a>
-          <a href="#">
-            <FaTwitter className="text-2xl" />
-          </a>
-          <a href="#">
-            <FaInstagram className="text-2xl" />
-          </a>
-          <a href="#">
-            <FaLinkedinIn className="text-2xl"/>
-          </a> */}
+          <p className="font-bold mb-2 uppercase text-[#F2F6FC]">Social</p>
+          <a className="link link-hover">Facebook</a>
+          <a className="link link-hover">Twitter</a>
+          <a className="link link-hover">Linkedin</a>
         </div>
       </div>
     </div>

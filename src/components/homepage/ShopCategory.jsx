@@ -30,7 +30,7 @@ const ShopCategory = () => {
       </div>
 
 
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-x-5 pt-5'>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-5 pt-5'>
         {shopCategory.map(category => (
           <CategoryCard key={category._id} category={category} />
         ))}
