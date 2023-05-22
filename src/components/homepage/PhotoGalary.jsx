@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import sportsCar1 from '../../assets/sports car/1.jpg'
 import sportsCar2 from '../../assets/sports car/2.jpg'
 import sportsCar3 from '../../assets/sports car/3.jpg'
@@ -7,13 +7,18 @@ import miniTruck1 from '../../assets/mini truck/1.jpg'
 import miniTruck2 from '../../assets/mini truck/2.jpg'
 import miniTruck3 from '../../assets/mini truck/3.jpg'
 import miniTruck4 from '../../assets/mini truck/4.jpg'
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const PhotoGalary = () => {
+  useEffect(() => {
+    Aos.init({duration: 1000});
+  }, [])
   return (
-    <div className='mb-10 md:mb-20'>
+    <div data-aos='fade-down' className='mb-10 md:mb-20 min-h-screen'>
       <h2 className='text-center text-4xl md:text-4xl font-bold'>Photo Galary</h2>
       <p className='text-center mt-5 mb-10 border-b border-[#212121] pb-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br className='hidden md:flex'/> Ab pariatur praesentium illo, accusamus iure mollitia <br className='hidden md:flex' /> ipsum reprehenderit expedita veritatis cum.</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-y-8">
 
       {/* car galary section */}
         <div className="space-y-2 text-center">

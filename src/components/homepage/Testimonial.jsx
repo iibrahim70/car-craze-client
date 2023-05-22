@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Testimonial = () => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, [])
+
   const testimonials = [
     {
       name: 'John Doe',
@@ -26,7 +32,7 @@ const Testimonial = () => {
   ];
   
   return (
-    <section className="mb-10 md:mb-20">
+    <div data-aos='fade-left' className="min-h-screen">
       <h2 className='text-center text-4xl md:text-4xl font-bold'>What Our Clients Say</h2>
       <p className='text-center mt-5 mb-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br className='hidden md:flex' /> Ab pariatur praesentium illo, accusamus iure mollitia <br className='hidden md:flex' /> ipsum reprehenderit expedita veritatis cum.</p>
 
@@ -47,7 +53,7 @@ const Testimonial = () => {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -8,7 +8,8 @@ import MyToys from "../pages/mytoys/MyToys";
 import AddToys from "../pages/addtoys/AddToys";
 import Blogs from "../pages/blogs/Blogs";
 import ErrorPage from "../pages/errorpage/ErrorPage";
-import ToyDetails from "../pages/home/toydetails/ToyDetails";
+import ToyDetails from "../pages/toydetails/ToyDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -26,16 +27,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/toydetails/:id',
-        element: <ToyDetails/>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
+        element: <PrivateRoute><ToyDetails /></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://car-craze-server-omega.vercel.app/toys/${params.id}`)
       },
       {
         path: '/mytoys',
-        element: <MyToys/>
+        element: <PrivateRoute><MyToys /></PrivateRoute>
       },
       {
         path: '/addtoys',
-        element: <AddToys/>
+        element: <PrivateRoute><AddToys /></PrivateRoute>
       },
       {
         path: '/blogs',

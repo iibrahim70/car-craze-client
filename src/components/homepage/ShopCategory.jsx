@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import CategoryCard from './CategoryCard';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const ShopCategory = () => {
+  useEffect(() => {
+    Aos.init({duration: 1000});
+  }, [])
+
   const [shopCategory, setShopCategory] = useState([]);
   const [activeTab, setActiveTab] = useState("sports-car"); 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/shop-category/${activeTab}`)
+    fetch(`https://car-craze-server-omega.vercel.app/shop-category/${activeTab}`)
       .then(res => res.json())
       .then(data => setShopCategory(data))
       .catch(error => console.error(error));
@@ -17,7 +23,7 @@ const ShopCategory = () => {
   };
 
   return (
-    <div className='mb-10 md:mb-20'>
+    <div data-aos='fade-right' className='mb-10 md:mb-20 min-h-screen'>
       <h2 className='text-center text-4xl md:text-4xl font-bold'>Shop by Category</h2>
       <p className='text-center mt-5 mb-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br className='hidden md:flex' /> Ab pariatur praesentium illo, accusamus iure mollitia <br className='hidden md:flex' /> ipsum reprehenderit expedita veritatis cum.</p>
       
@@ -30,7 +36,7 @@ const ShopCategory = () => {
       </div>
 
 
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-5 pt-5'>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-10 pt-5'>
         {shopCategory.map(category => (
           <CategoryCard key={category._id} category={category} />
         ))}

@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { MdDelete } from 'react-icons/md';
+import { FaRegEdit } from 'react-icons/fa';
 
 const MyToysTable = ({ toys, handleDelete, handleUpdate }) => {
   const { _id, sellerName, toyName, subCategory, price, quantity } = toys;
@@ -27,11 +29,11 @@ const MyToysTable = ({ toys, handleDelete, handleUpdate }) => {
         </td>
 
         <th>
-          <button onClick={() => handleDelete(_id)} className="btn-primary">delete</button>
+          <MdDelete onClick={() => handleDelete(_id)} className='w-6 h-6 cursor-pointer'/>
         </th>        
         
         <th>
-          <button onClick={() => handleUpdate(_id)} className="btn-primary">update</button>
+          <FaRegEdit onClick={() => handleUpdate(_id)} className="w-5 h-5 cursor-pointer"/>
         </th>
       </tr>
     </>

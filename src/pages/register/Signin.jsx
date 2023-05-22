@@ -2,12 +2,18 @@ import React, { useContext } from 'react';
 import loginAnimation from '../../assets/animation/login.json'
 import Lottie from 'lottie-react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
+import useTitle from '../../components/hooks/useTitle';
+import { FcGoogle } from 'react-icons/fc';
 
 const Signin = () => {
+  useTitle('Signin');
+  const navigate = useNavigate(); 
+  const location = useLocation(); 
+  const from = location.state?.from?.pathname || '/'; 
 
   const {signIn, googleSignIn, setUser} = useContext(AuthContext); 
 
@@ -17,6 +23,7 @@ const Signin = () => {
     signIn(email, password)
       .then(res => {
         const user = res.user;
+        navigate(from, {replace: true}); 
         console.log(user);
         setUser(user);
         reset();
@@ -37,6 +44,7 @@ const Signin = () => {
     googleSignIn()
       .then(res => {
         const loggedUser = res.user;
+        navigate(from);
         console.log(loggedUser);
       })
       .catch(err => {
@@ -76,12 +84,12 @@ const Signin = () => {
 
           <input className="btn-primary w-full" type="submit" value="Login" />
         </form>
-        <div className="flex items-center mt-5">
+        <div className="flex items-center mt-4">
           <p className="mr-2">Signin with</p>
-          <button onClick={handleGoogleSignIn} className='btn-primary'>Google</button>
+          <FcGoogle onClick={handleGoogleSignIn} className='w-8 h-8 cursor-pointer'/>
         </div>
 
-        <p className='mt-5'>Don't have an account yet? <Link className='text-[#FF4136]' to='/signup'>Signup</Link></p>
+        <p className='mt-4'>Don't have an account yet? <Link className='text-[#FF4136]' to='/signup'>Signup</Link></p>
       </div>
     </div>
   );

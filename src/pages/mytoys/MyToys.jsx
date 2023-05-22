@@ -13,14 +13,15 @@ const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [modalToy, setModalToy] = useState(null);
+  const [sortOrder, setSortOrder] = useState('asc');
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/mytoys?email=${user?.email}`)
+    fetch(`https://car-craze-server-omega.vercel.app/mytoys?email=${user?.email}&sort=${sortOrder}`)
       .then((res) => res.json())
       .then((data) => setMyToys(data));
-  }, [user]);
+  }, [user, sortOrder]);
 
   useEffect(() => {
     if (modalToy) {
@@ -39,7 +40,7 @@ const MyToys = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/mytoys/${id}`, {
+        fetch(`https://car-craze-server-omega.vercel.app/mytoys/${id}`, {
           method: 'DELETE',
         })
           .then((res) => res.json())
@@ -70,7 +71,7 @@ const MyToys = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .put(`http://localhost:5000/mytoys/${modalToy._id}`, updatedToy)
+          .put(`https://car-craze-server-omega.vercel.app/mytoys/${modalToy._id}`, updatedToy)
           .then((response) => {
             const updatedCount = response.data.modifiedCount;
             if (updatedCount === 1) {
@@ -101,15 +102,23 @@ const MyToys = () => {
     });
   };
 
-
-
   const handleClose = () => {
     setIsOpen(false);
     reset();
   };
 
+  const handleSort = () => {
+    const newSortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+    setSortOrder(newSortOrder);
+  };
+
   return (
-    <div className="mt-[104px] mb-10 md:mt-[144px] md:mb-20">
+    <div className="container mt-[104px] mb-10 md:mt-[144px] md:mb-20">
+      <div className="flex justify-end mb-4">
+        <button className="btn-primary" onClick={handleSort}>
+          Sort by Price {sortOrder === 'asc' ? '↓' : '↑'}
+        </button>
+      </div>
       <table className="table w-full z-0">
         {/* table header */}
         <thead>
@@ -142,7 +151,7 @@ const MyToys = () => {
           'fixed w-full md:w-1/2 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-10 bg-white shadow-xl z-[1001]',
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         )}>
-        
+
         <div className='flex justify-end'>
           <button onClick={handleClose}>❌</button>
         </div>
