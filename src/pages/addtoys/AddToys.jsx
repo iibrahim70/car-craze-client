@@ -98,7 +98,7 @@ const AddToys = () => {
             </div>
 
             <div className="mb-4">
-              <label className="block mb-[7px] font-medium">Sub-category</label>
+              <label className="block mb-[7px] font-medium">Sub Category</label>
               <select className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('subCategory', { required: true })}>
                 <option value="sports-car">Sports Car</option>
                 <option value="mini-fire-truck">Mini Fire Truck</option>
@@ -118,7 +118,7 @@ const AddToys = () => {
             )}
           </div>
 
-          <input className="btn w-full rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base" type="submit" value="Add Toy" />
+          <input className="btn-primary w-full" type="submit" value="Add Toy" />
 
         </form>
       </div>

@@ -11,8 +11,8 @@ const Navbar = () => {
   const navItems = <div className='space-x-5'>
     <ActiveLink to='/'>Home</ActiveLink>
     <ActiveLink to='alltoys'>All Toys</ActiveLink>
-    {<ActiveLink to='mytoys'>My Toys</ActiveLink>}
-    {<ActiveLink to='addtoys'>Add Toys</ActiveLink>}
+    {user &&<ActiveLink to='mytoys'>My Toys</ActiveLink>}
+    {user &&<ActiveLink to='addtoys'>Add Toys</ActiveLink>}
     <ActiveLink to='blogs'>Blogs</ActiveLink>
   </div>
 
@@ -49,7 +49,7 @@ const Navbar = () => {
             </label>
           </div>}
 
-          {user ? <button onClick={handleLogout} className="btn rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base">Logout</button> : <Link to='/signin' className="btn rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base">Signin</Link>}
+          {user ? <button onClick={handleLogout} className="btn-primary">Logout</button> : <Link to='/signin' className="btn-primary">Signin</Link>}
 
         </div>
       </div>
