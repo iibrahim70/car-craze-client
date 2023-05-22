@@ -63,11 +63,11 @@ const Signin = () => {
             )}
           </div>
 
-          <input className="btn w-full rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base" type="submit" value="Login" />
+          <input className="btn-primary w-full" type="submit" value="Login" />
         </form>
         <div className="flex items-center mt-5">
           <p className="mr-2">Signin with</p>
-          <button onClick={handleGoogleSignIn} className='btn bg-[#2ECC71] text-[#F2F6FC] hover:bg-black rounded-sm'>Google</button>
+          <button onClick={handleGoogleSignIn} className='btn-primary'>Google</button>
         </div>
 
         <p className='mt-5'>Don't have an account yet? <Link className='text-[#FF4136]' to='/signup'>Signup</Link></p>

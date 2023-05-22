@@ -79,11 +79,11 @@ const Signup = () => {
             )}
           </div>
 
-          <input className="btn w-full rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base" type="submit" value="signup" />
+          <input className="btn-primary w-full" type="submit" value="signup" />
         </form>
         <div className="flex items-center mt-5">
           <p className="mr-2">Signin with</p>
-          <button className='btn bg-[#2ECC71] text-[#F2F6FC] hover:bg-black rounded-sm'>Google</button>
+          <button className='btn-primary'>Google</button>
         </div>
         <p className='mt-5'>Already have an account? <Link className='text-[#FF4136]' to='/signin'>Signin</Link></p>
       </div>

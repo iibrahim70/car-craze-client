@@ -1,15 +1,16 @@
 import React from 'react';
 
 const CategoryCard = ({category}) => {
-  const { toyName, toyPicture, price  } = category; 
+  const { toyName, toyPicture, price, rating  } = category; 
   return (
-    <div className="card bg-base-100 shadow-xl">
-      <figure><img className='h-[90%] w-full' src={toyPicture} alt="Toys" /></figure>
-      <div className="card-body">
-        <h2 className="card-title">{toyName}</h2>
+    <div className="shadow-xl">
+      <figure className='h-52'><img className='h-[90%] w-full' src={toyPicture} alt="Toys" /></figure>
+      <div className="ps-5 space-y-2">
+        <h2 className="">{toyName}</h2>
         <p>Price: ${price}</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Details</button>
+        <p>Ratings: {rating}</p>
+        <div className="flex justify-end pr-5 pb-2">
+          <button className="btn-primary">Details</button>
         </div>
       </div>
     </div>

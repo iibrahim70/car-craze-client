@@ -27,11 +27,11 @@ const MyToysTable = ({ toys, handleDelete, handleUpdate }) => {
         </td>
 
         <th>
-          <button onClick={() => handleDelete(_id)} className="btn rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base">delete</button>
+          <button onClick={() => handleDelete(_id)} className="btn-primary">delete</button>
         </th>        
         
         <th>
-          <button onClick={() => handleUpdate(_id)} className="btn rounded-sm bg-[#2ECC71] text-[#F2F6FC] hover:bg-black capitalize text-base">update</button>
+          <button onClick={() => handleUpdate(_id)} className="btn-primary">update</button>
         </th>
       </tr>
     </>

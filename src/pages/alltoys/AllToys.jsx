@@ -18,11 +18,11 @@ const AllToys = () => {
         {/* table header */} 
         <thead>
           <tr>
-            <th className='text-white'>Seller Name</th>
-            <th className='text-white'>Toy Name</th>
-            <th className='text-white'>Sub Category</th>
-            <th className='text-white'>Price</th>
-            <th className='text-white'>Quantity</th>
+            <th>Seller Name</th>
+            <th>Toy Name</th>
+            <th>Sub Category</th>
+            <th>Price</th>
+            <th>Quantity</th>
             <th></th>
           </tr>
         </thead>
