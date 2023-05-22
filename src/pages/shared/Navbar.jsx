@@ -39,17 +39,17 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           {navItems}
         </div>
-        <div className="navbar-end gap-10">
+        <div className="navbar-end md:gap-10">
           
           {user && <div className="tooltip tooltip-left" data-tip={user?.displayName}>
-            <label className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full" >
+            <div className="avatar">
+              <div className="w-8 md:w-12 mr-2 md:mr-0 rounded-full" >
                 <img src={user?.photoURL} />
               </div>
-            </label>
+            </div>
           </div>}
 
-          {user ? <button onClick={handleLogout} className="btn-primary">Logout</button> : <Link to='/signin' className="btn-primary">Signin</Link>}
+          {user ? <button onClick={handleLogout} className="inline-flex items-center justify-center capitalize lg:text-base lg:px-6 md:px-4 px-3 lg:py-3 py-2 mb-3 font-bold text-black hover:font-medium transition hover:drop-shadow-2xl border-none hover:shadow-xl md:mb-0 hover:bg-[#2ECC71] duration-700">Logout</button> : <Link to='/signin' className="inline-flex items-center justify-center capitalize lg:text-base lg:px-6 md:px-4 px-3 lg:py-3 py-2 mb-3 font-bold text-black transition hover:drop-shadow-2xl hover:font-medium border-none hover:shadow-xl md:mb-0 hover:bg-[#2ECC71] duration-700">Signin</Link>}
 
         </div>
       </div>

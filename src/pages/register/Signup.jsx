@@ -1,15 +1,22 @@
 import React, { useContext } from 'react';
 import loginAnimation from '../../assets/animation/login.json'
 import Lottie from 'lottie-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
+import useTitle from '../../components/hooks/useTitle';
+import { FcGoogle } from 'react-icons/fc';
 
 const Signup = () => {
-  const { createUser, setUser, auth } = useContext(AuthContext); 
+  useTitle('Signup');
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';  
+
+  const { createUser, setUser, auth, googleSignIn } = useContext(AuthContext); 
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const onSubmit = user => {
@@ -18,6 +25,7 @@ const Signup = () => {
     createUser(email, password)
       .then((res) => {
         const user = res.user;
+        navigate(from, { replace: true });
         console.log(user);
         setUser(user);
         reset(); 
@@ -42,6 +50,19 @@ const Signup = () => {
           }
         }).showToast();
       });
+  }
+
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then(res => {
+        const loggedUser = res.user;
+        navigate(from, { replace: true });
+        console.log(loggedUser);
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   return (
@@ -92,11 +113,11 @@ const Signup = () => {
 
           <input className="btn-primary w-full" type="submit" value="signup" />
         </form>
-        <div className="flex items-center mt-5">
+        <div className="flex items-center mt-4">
           <p className="mr-2">Signin with</p>
-          <button className='btn-primary'>Google</button>
+          <FcGoogle onClick={handleGoogleSignIn} className='w-8 h-8 cursor-pointer'/>
         </div>
-        <p className='mt-5'>Already have an account? <Link className='text-[#FF4136]' to='/signin'>Signin</Link></p>
+        <p className='mt-4'>Already have an account? <Link className='text-[#FF4136]' to='/signin'>Signin</Link></p>
       </div>
     </div>
   );

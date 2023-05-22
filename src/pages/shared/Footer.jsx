@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from '../../assets/logo/white-logo.ico';
-import '../../../src/global.css';
 
 
 const Footer = () => {
   return (
-    <div className='bg-[#212121]'>
+    <div className='bg-[#212121] container'>
       <div className="footer w-[90%] mx-auto text-base-content py-10">
         <div>
           <img className='h-8 mb-5' src={logo} alt="" />
