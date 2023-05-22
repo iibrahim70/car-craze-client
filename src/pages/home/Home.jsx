@@ -3,6 +3,7 @@ import Hero from '../../components/homepage/Hero';
 import ShopCategory from '../../components/homepage/ShopCategory';
 import PhotoGalary from '../../components/homepage/PhotoGalary';
 import useTitle from '../../components/hooks/useTitle';
+import Testimonial from '../../components/homepage/Testimonial';
 
 const Home = () => {
   useTitle('Home');
@@ -11,6 +12,7 @@ const Home = () => {
       <Hero/>
       <PhotoGalary/>
       <ShopCategory/>
+      <Testimonial/>
     </>
   );
 };

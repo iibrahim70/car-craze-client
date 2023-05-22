@@ -5,26 +5,26 @@ const AllToysTable = ({ toys }) => {
 
   return (
     <>
-      <tr>
+      <tr className='font-medium'>
 
         <td>
-          <h4 className="font-bold">{sellerName}</h4>
+          <h4>{sellerName}</h4>
         </td>
 
         <td>
-          <h4 className="font-bold">{toyName}</h4>
+          <h4>{toyName}</h4>
         </td>
 
         <td>
-          <h4 className="font-bold">{subCategory}</h4>
+          <h4 className='capitalize'>{subCategory}</h4>
         </td>
 
         <td>
-          <h4 className="font-bold">${price}</h4>
+          <h4>${price}</h4>
         </td>
 
         <td>
-          <h4 className="font-bold">{quantity}</h4>
+          <h4>{quantity}</h4>
         </td>
 
         <th>
