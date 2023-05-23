@@ -22,7 +22,6 @@ const AllToys = () => {
 
   return (
     <div className="container mt-[104px] mb-10 md:mt-[144px] md:mb-20">
-      
       <div className='flex justify-end mb-5'>
         <form className='flex gap-2' onSubmit={handleSubmit(onSubmit)}>
           <input className='border-b border-[#212121] py-1 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-1 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]'
