@@ -2,8 +2,10 @@ import React from 'react'
 import Lottie from 'lottie-react';
 import errorAnimation from '../../assets/animation/error.json'
 import { Link, useRouteError } from 'react-router-dom'
+import useTitle from '../../components/hooks/useTitle';
 
 const ErrorPage = () => {
+  useTitle('ErrorPage');
   const { error } = useRouteError()
   return (
     <div className='container flex flex-col items-center justify-center'>
