@@ -66,7 +66,7 @@ const Signup = () => {
   }
 
   return (
-    <div className="grid grid-cols-2 min-h-screen mt-[144px] mb-20">
+    <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen mt-[144px] mb-20 gap-y-10 md:gap-y-0">
 
       {/* left side animation */}
       <div className="flex flex-col justify-center items-center">

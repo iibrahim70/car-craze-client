@@ -113,38 +113,40 @@ const MyToys = () => {
   };
 
   return (
-    <div className="container mt-[104px] mb-10 md:mt-[144px] md:mb-20">
-      <div className="flex justify-end mb-4">
+    <div className="mt-[104px] mb-10 md:mt-[144px] md:mb-20">
+      <div className="flex justify-end mb-5">
         <button className="btn-primary" onClick={handleSort}>
           Sort by Price {sortOrder === 'asc' ? '↓' : '↑'}
         </button>
       </div>
-      <table className="table w-full z-0">
-        {/* table header */}
-        <thead>
-          <tr>
-            <th>Seller Name</th>
-            <th>Toy Name</th>
-            <th>Sub Category</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
+      <div className='overflow-x-auto'>
+        <table className="table w-full z-0">
+          {/* table header */}
+          <thead>
+            <tr>
+              <th>Seller Name</th>
+              <th>Toy Name</th>
+              <th>Sub Category</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Delete</th>
+              <th>Update</th>
+            </tr>
+          </thead>
 
-        {/* table body */}
-        <tbody>
-          {myToys.map((toys) => (
-            <MyToysTable key={toys._id} toys={toys} handleDelete={handleDelete} handleUpdate={handleUpdate} />
-          ))}
-        </tbody>
-      </table>
+          {/* table body */}
+          <tbody>
+            {myToys.map((toys) => (
+              <MyToysTable key={toys._id} toys={toys} handleDelete={handleDelete} handleUpdate={handleUpdate} />
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       <div
         onClick={handleClose}
-        className={clsx('fixed w-full h-full top-0 right-0 bottom-0 left-0 z-[1000] bg-white/20 backdrop-blur-lg', isOpen ? 'opacity-100 visible' : 'opacity-0 invisible')}
-      ></div>
+        className={clsx('fixed w-full h-full top-0 right-0 bottom-0 left-0 z-[1000] bg-white/20 backdrop-blur-lg', isOpen ? 'opacity-100 visible' : 'opacity-0 invisible')}>
+      </div>
 
       <div
         className={clsx(
@@ -183,7 +185,7 @@ const MyToys = () => {
             )}
           </div>
 
-          <input className="btn-primary w-full" type="submit" value="Update" />
+          <input className="btn-primary w-full" type="submit" value="Update"/>
         </form>
       </div>
     </div>

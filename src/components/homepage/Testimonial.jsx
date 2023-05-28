@@ -32,13 +32,15 @@ const Testimonial = () => {
   ];
   
   return (
-    <div data-aos='fade-left' className="min-h-screen">
-      <h2 className='text-center text-4xl md:text-4xl font-bold'>What Our Clients Say</h2>
-      <p className='text-center mt-5 mb-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br className='hidden md:flex' /> Ab pariatur praesentium illo, accusamus iure mollitia <br className='hidden md:flex' /> ipsum reprehenderit expedita veritatis cum.</p>
+    <div className="min-h-screen">
+      <div data-aos='fade-right'>
+        <h2 className='text-center text-4xl md:text-4xl font-bold'>What Our Clients Say</h2>
+        <p className='text-center mt-5 mb-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br className='hidden md:flex' /> Ab pariatur praesentium illo, accusamus iure mollitia <br className='hidden md:flex' /> ipsum reprehenderit expedita veritatis cum.</p>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {testimonials.map((testimonial, index) => (
-          <div
+          <div data-aos='fade-left'
             key={index}
             className="bg-white rounded-lg space-y-3 p-5 shadow-md text-center"
           >
