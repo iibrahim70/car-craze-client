@@ -15,12 +15,15 @@ const PhotoGalary = () => {
     Aos.init({duration: 1000});
   }, [])
   return (
-    <div data-aos='fade-down' className='mb-10 md:mb-20 min-h-screen'>
-      <h2 className='text-center text-4xl md:text-4xl font-bold'>Photo Galary</h2>
-      <p className='text-center mt-5 mb-10 border-b border-[#212121] pb-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br className='hidden md:flex'/> Ab pariatur praesentium illo, accusamus iure mollitia <br className='hidden md:flex' /> ipsum reprehenderit expedita veritatis cum.</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-y-8">
+    <div className='mb-10 md:mb-20 min-h-screen'>
+      
+      <div data-aos='fade-down'>
+        <h2 className='text-center text-4xl md:text-4xl font-bold'>Photo Galary</h2>
+        <p className='text-center mt-5 mb-10 border-b border-[#212121] pb-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br className='hidden md:flex' /> Ab pariatur praesentium illo, accusamus iure mollitia <br className='hidden md:flex' /> ipsum reprehenderit expedita veritatis cum.</p>
+      </div>
 
       {/* car galary section */}
+      <div data-aos='fade-left' className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 mb-5 gap-y-5">
         <div className="space-y-2 text-center">
           <img className='md:h-60' src={sportsCar1} alt="" />
           <p>Ferrari 488 GTB</p>
@@ -37,8 +40,10 @@ const PhotoGalary = () => {
           <img className='md:h-60' src={sportsCar4} alt="" />
           <p>Lamborghini Aventador</p>
         </div>
+      </div>
 
-        {/* mini truck galary section */}
+      {/* mini truck galary section */}
+      <div data-aos='fade-right' className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-y-5">
         <div className="space-y-2 text-center">
           <img className='md:h-60' src={miniTruck1} alt="" />
           <p>Blaze Buster</p>
@@ -55,8 +60,8 @@ const PhotoGalary = () => {
           <img className='md:h-60' src={miniTruck4} alt="" />
           <p>Firefly</p>
         </div>
-        
       </div>
+
     </div>
   );
 };

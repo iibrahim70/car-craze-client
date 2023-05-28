@@ -23,11 +23,13 @@ const ShopCategory = () => {
   };
 
   return (
-    <div data-aos='fade-right' className='mb-10 md:mb-20 min-h-screen'>
-      <h2 className='text-center text-4xl md:text-4xl font-bold'>Shop by Category</h2>
-      <p className='text-center mt-5 mb-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br className='hidden md:flex' /> Ab pariatur praesentium illo, accusamus iure mollitia <br className='hidden md:flex' /> ipsum reprehenderit expedita veritatis cum.</p>
+    <div className='mb-10 md:mb-20 min-h-screen'>
+      <div data-aos='fade-down'>
+        <h2 className='text-center text-4xl md:text-4xl font-bold'>Shop by Category</h2>
+        <p className='text-center mt-5 mb-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br className='hidden md:flex' /> Ab pariatur praesentium illo, accusamus iure mollitia <br className='hidden md:flex' /> ipsum reprehenderit expedita veritatis cum.</p>
+      </div>
       
-      <div className='flex gap-5'>
+      <div data-aos='zoom-in-left' className='flex gap-5'>
         <div onClick={() => handleTabClick("sports-car")} className={`shadow-xl p-3 text-black sports-car${activeTab === "sports-car" ? " bg-[#2ECC71] font-medium" : ""}`}>Sports Car</div>
 
         <div onClick={() => handleTabClick("mini-fire-truck")} className={`shadow-xl p-3 text-black mini-fire-truck${activeTab === "mini-fire-truck" ? " bg-[#2ECC71] font-medium" : ""}`}>Mini Fire Truck</div>
@@ -36,7 +38,7 @@ const ShopCategory = () => {
       </div>
 
 
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-10 pt-5'>
+      <div data-aos='zoom-out-right' className='grid grid-cols-1 md:grid-cols-3 gap-10 pt-10'>
         {shopCategory.map(category => (
           <CategoryCard key={category._id} category={category} />
         ))}
