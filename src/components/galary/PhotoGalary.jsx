@@ -23,41 +23,41 @@ const PhotoGalary = () => {
       </div>
 
       {/* car galary section */}
-      <div data-aos='fade-left' className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 mb-5 gap-y-5">
+      <div data-aos='fade-left' className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 mb-5 gap-10">
         <div className="space-y-2 text-center">
-          <img className='md:h-60' src={sportsCar1} alt="" />
+          <img src={sportsCar1} alt="" />
           <p>Ferrari 488 GTB</p>
         </div>
         <div className="space-y-2 text-center">
-          <img className='md:h-60' src={sportsCar2} alt="" />
+          <img src={sportsCar2} alt="" />
           <p>Porsche 911 GT3</p>
         </div>
         <div className="space-y-2 text-center">
-          <img className='md:h-60' src={sportsCar3} alt="" />
+          <img src={sportsCar3} alt="" />
           <p>Audi R8 Spyder</p>
         </div>
         <div className="space-y-2 text-center">
-          <img className='md:h-60' src={sportsCar4} alt="" />
+          <img src={sportsCar4} alt="" />
           <p>Lamborghini Aventador</p>
         </div>
       </div>
 
       {/* mini truck galary section */}
-      <div data-aos='fade-right' className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-y-5">
+      <div data-aos='fade-right' className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="space-y-2 text-center">
-          <img className='md:h-60' src={miniTruck1} alt="" />
+          <img src={miniTruck1} alt="" />
           <p>Blaze Buster</p>
         </div>
         <div className="space-y-2 text-center">
-          <img className='md:h-60' src={miniTruck2} alt="" />
+          <img src={miniTruck2} alt="" />
           <p>Spark Responder</p>
         </div>
         <div className="space-y-2 text-center">
-          <img className='md:h-60' src={miniTruck3} alt="" />
+          <img src={miniTruck3} alt="" />
           <p>Mini Inferno</p>
         </div>
         <div className="space-y-2 text-center">
-          <img className='md:h-60' src={miniTruck4} alt="" />
+          <img src={miniTruck4} alt="" />
           <p>Firefly</p>
         </div>
       </div>
