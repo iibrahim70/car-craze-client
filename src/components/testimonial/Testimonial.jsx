@@ -32,7 +32,7 @@ const Testimonial = () => {
   ];
   
   return (
-    <div className="min-h-screen">
+    <div className="mb-10 md:mb-20">
       <div data-aos='fade-right'>
         <h2 className='text-center text-4xl md:text-4xl font-bold'>What Our Clients Say</h2>
         <p className='text-center mt-5 mb-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br className='hidden md:flex' /> Ab pariatur praesentium illo, accusamus iure mollitia <br className='hidden md:flex' /> ipsum reprehenderit expedita veritatis cum.</p>

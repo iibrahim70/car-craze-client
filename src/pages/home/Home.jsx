@@ -1,10 +1,10 @@
 import React from 'react';
-import Hero from '../../components/homepage/Hero';
-import ShopCategory from '../../components/homepage/ShopCategory';
-import PhotoGalary from '../../components/homepage/PhotoGalary';
+import Hero from '../../components/hero/Hero';
+import ShopCategory from '../../components/shopcategory/ShopCategory';
+import PhotoGalary from '../../components/galary/PhotoGalary';
 import useTitle from '../../components/hooks/useTitle';
-import Testimonial from '../../components/homepage/Testimonial';
-import QualityClients from '../../components/homepage/QualityClients';
+import Testimonial from '../../components/testimonial/Testimonial';
+import QualityClients from '../../components/qualityclients/QualityClients';
 
 
 const Home = () => {
