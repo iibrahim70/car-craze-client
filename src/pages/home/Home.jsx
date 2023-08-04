@@ -10,11 +10,11 @@ import QualityClients from '../../components/qualityclients/QualityClients';
 const Home = () => {
   useTitle('Home');
   return (
-    <div className='overflow-x-hidden'>
+    <div className='overflow-x-hidden pt-[64px]'>
       <Hero/>
       <PhotoGalary/>
       <ShopCategory/>
-      <QualityClients/>
+      {/* <QualityClients/> */}
       <Testimonial/>
     </div>
   );
