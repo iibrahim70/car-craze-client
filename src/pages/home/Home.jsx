@@ -5,6 +5,7 @@ import PhotoGalary from '../../components/galary/PhotoGalary';
 import useTitle from '../../components/hooks/useTitle';
 import Testimonial from '../../components/testimonial/Testimonial';
 import QualityClients from '../../components/qualityclients/QualityClients';
+import ChooseUs from '../../components/chooseus/ChooseUs';
 
 
 const Home = () => {
@@ -14,7 +15,8 @@ const Home = () => {
       <Hero/>
       <PhotoGalary/>
       <ShopCategory/>
-      {/* <QualityClients/> */}
+      <ChooseUs/>
+      <QualityClients/>
       <Testimonial/>
     </div>
   );
