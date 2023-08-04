@@ -11,15 +11,17 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 
 const PhotoGalary = () => {
+
   useEffect(() => {
     Aos.init({duration: 1000});
   }, [])
+  
   return (
-    <div className='mb-10 md:mb-20 min-h-screen'>
+    <section className='flex items-center justify-center flex-col'>
       
-      <div data-aos='fade-down'>
-        <h2 className='text-center text-4xl md:text-4xl font-bold'>Photo Galary</h2>
-        <p className='text-center mt-5 mb-10 border-b border-[#212121] pb-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br className='hidden md:flex' /> Ab pariatur praesentium illo, accusamus iure mollitia <br className='hidden md:flex' /> ipsum reprehenderit expedita veritatis cum.</p>
+      <div data-aos='fade-down' className='space-y-5 mb-5'>
+        <h2 className='text-center text-4xl font-bold'>Memories in Motion</h2>
+        <p className='text-justify lg:text-center'>Take a visual journey through our captivating photo gallery, <br className='hidden lg:flex' /> showcasing the finest collection of cars, scenic drives, and unforgettable moments. <br className='hidden lg:flex' /> Let these images ignite your passion for extraordinary automobiles and the thrill of the open road.</p>
       </div>
 
       {/* car galary section */}
@@ -62,7 +64,7 @@ const PhotoGalary = () => {
         </div>
       </div>
 
-    </div>
+    </section>
   );
 };
 

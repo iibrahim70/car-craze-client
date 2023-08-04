@@ -23,10 +23,11 @@ const ShopCategory = () => {
   };
 
   return (
-    <div className='mb-10 md:mb-20 min-h-screen'>
-      <div data-aos='fade-down'>
-        <h2 className='text-center text-4xl md:text-4xl font-bold'>Shop by Category</h2>
-        <p className='text-center mt-5 mb-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br className='hidden md:flex' /> Ab pariatur praesentium illo, accusamus iure mollitia <br className='hidden md:flex' /> ipsum reprehenderit expedita veritatis cum.</p>
+    <section className='mt-10 lg:mt-20'>
+      
+      <div data-aos='fade-down' className='space-y-5 mb-5'>
+        <h2 className='text-center text-4xl font-bold'>Explore by Category</h2>
+        <p className='text-justify lg:text-center'>Experience the thrill of speed with our Sports Cars, let your little ones' <br className='hidden lg:flex' /> imagination soar with our Mini Fire Trucks, or patrol the streets in style with our Police Cars. <br className='hidden lg:flex' /> Explore our unique categories and find the perfect vehicle to match your excitement and needs.</p>
       </div>
       
       <div data-aos='zoom-in-left' className='flex gap-5'>
@@ -43,7 +44,8 @@ const ShopCategory = () => {
           <CategoryCard key={category._id} category={category} />
         ))}
       </div>
-    </div>
+
+    </section>
   );
 };
 

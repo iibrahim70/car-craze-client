@@ -22,36 +22,31 @@ const router = createBrowserRouter([
         element: <Home/>
       },
       {
-        path: '/alltoys',
+        path: '/allcars',
         element: <AllToys/>,
       },
       {
         path: '/toydetails/:id',
-        element: <PrivateRoute><ToyDetails /></PrivateRoute>,
+        element: <ToyDetails/>,
         loader: ({ params }) => fetch(`https://car-craze-server-omega.vercel.app/toys/${params.id}`)
       },
       {
-        path: '/mytoys',
+        path: '/mycars',
         element: <PrivateRoute><MyToys /></PrivateRoute>
       },
       {
-        path: '/addtoys',
+        path: '/addcars',
         element: <PrivateRoute><AddToys /></PrivateRoute>
       },
       {
         path: '/blogs',
         element: <Blogs/>
-      },
-      {
-        path: '/signin',
-        element: <Signin/>
-      },
-      {
-        path: '/signup',
-        element: <Signup/>
       }
     ]
-  }
+  },
+  
+  {path: '/signin', element: <Signin />},
+  {path: '/signup', element: <Signup />}
 ])
 
 export default router; 

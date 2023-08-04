@@ -10,9 +10,9 @@ const Navbar = () => {
 
   const navItems = <div className='space-x-5'>
     <ActiveLink to='/'>Home</ActiveLink>
-    <ActiveLink to='alltoys'>All Toys</ActiveLink>
-    {user &&<ActiveLink to='mytoys'>My Toys</ActiveLink>}
-    {user &&<ActiveLink to='addtoys'>Add Toys</ActiveLink>}
+    <ActiveLink to='allcars'>All Cars</ActiveLink>
+    <ActiveLink to='mycars'>My Cars</ActiveLink>
+    <ActiveLink to='addcars'>Add Cars</ActiveLink>
     <ActiveLink to='blogs'>Blogs</ActiveLink>
   </div>
 
@@ -23,7 +23,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='fixed top-0 pb-0 pt-0 w-full shadow-lg bg-white z-10'>
+    <div className='fixed top-0 w-full shadow-lg bg-white z-10'>
       <div className="navbar w-[90%] mx-auto">
         <div className="navbar-start">
           <div className="dropdown">

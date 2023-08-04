@@ -8,6 +8,7 @@ import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
 import useTitle from '../../components/hooks/useTitle';
 import { FcGoogle } from 'react-icons/fc';
+import Button from '../../components/button/Button';
 
 const Signin = () => {
   useTitle('Signin');
@@ -82,7 +83,8 @@ const Signin = () => {
             )}
           </div>
 
-          <input className="btn-primary w-full" type="submit" value="Login" />
+          <Button text='Signin' />
+
         </form>
         <div className="flex items-center mt-4">
           <p className="mr-2">Signin with</p>
