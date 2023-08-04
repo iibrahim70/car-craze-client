@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import AllToysTable from './AllToysTable';
 import useTitle from '../../components/hooks/useTitle';
 import { useForm } from 'react-hook-form';
+import AllCarsTable from './AllCarsTable';
 
-const AllToys = () => {
-  useTitle('All Toys');
-  const [allToys, setAllToys] = useState([]);
+const AllCars = () => {
+  useTitle('All Cars');
+  const [allCars, setAllCars] = useState([]);
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    fetch(`https://car-craze-server-omega.vercel.app/serach-toys?limit=20&name=${data.searchQuery}`)
+    fetch(`http://localhost:5000/serach-cars?limit=20&name=${data.searchQuery}`)
       .then((res) => res.json())
-      .then((data) => setAllToys(data));
+      .then((data) => setAllCars(data));
   };
 
   useEffect(() => {
-    fetch('https://car-craze-server-omega.vercel.app/toys?limit=20')
+    fetch('http://localhost:5000/cars?limit=20')
       .then((res) => res.json())
-      .then((data) => setAllToys(data));
+      .then((data) => setAllCars(data));
   }, []);
 
   return (
@@ -28,7 +28,7 @@ const AllToys = () => {
             <input
               className='border-b border-[#212121] py-1 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-1 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]'
               type="text"
-              placeholder="Search by ToyName..."
+              placeholder="Search by Car Name..."
               {...register('searchQuery')}
             />
             <button
@@ -40,15 +40,13 @@ const AllToys = () => {
         </form>
       </div>
 
-
-
       <div className='overflow-x-auto'>
         <table className="table w-full z-0">
           {/* table header */}
           <thead>
             <tr>
               <th>Seller Name</th>
-              <th>Toy Name</th>
+              <th>Car Name</th>
               <th>Sub Category</th>
               <th>Price</th>
               <th>Quantity</th>
@@ -58,8 +56,8 @@ const AllToys = () => {
 
           {/* table body */}
           <tbody>
-            {allToys.map((toys) => (
-              <AllToysTable key={toys._id} toys={toys} />
+            {allCars.map((cars) => (
+              <AllCarsTable key={cars._id} cars={cars} />
             ))}
           </tbody>
         </table>
@@ -68,4 +66,4 @@ const AllToys = () => {
   );
 };
 
-export default AllToys;
+export default AllCars;

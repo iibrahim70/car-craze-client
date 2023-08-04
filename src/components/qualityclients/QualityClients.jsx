@@ -7,7 +7,7 @@ const QualityClients = () => {
     Aos.init({ duration: 2000 });
   }, [])
   return (
-    <div className='mb-10 md:mb-20 grid md:grid-cols-2 gap-10 justify-between items-center'>
+    <div className='mt-10 md:mt-20 grid md:grid-cols-2 gap-10 justify-between items-center'>
       <div data-aos='zoom-in-up' className='bg-red-200'>
         <img src="https://i.ibb.co/0GtP8Z1/full-length-confident-young-businesswoman-coming-out-her-vehicle-496169-1184.jpg" alt="" />
       </div>
