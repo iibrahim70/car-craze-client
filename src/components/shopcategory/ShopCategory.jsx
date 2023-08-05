@@ -40,8 +40,8 @@ const ShopCategory = () => {
 
 
       <div data-aos='zoom-out-right' className='grid grid-cols-1 md:grid-cols-3 gap-10 pt-5'>
-        {shopCategory.map(category => (
-          <CategoryCard key={category._id} category={category} />
+        {shopCategory.map(item => (
+          <CategoryCard key={item._id} item={item} />
         ))}
       </div>
 

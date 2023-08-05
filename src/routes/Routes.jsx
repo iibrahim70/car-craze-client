@@ -3,13 +3,13 @@ import Main from "../layout/Main";
 import Home from "../pages/home/Home";
 import Signin from "../pages/register/Signin";
 import Signup from "../pages/register/Signup";
-import MyToys from "../pages/mytoys/MyToys";
-import AddToys from "../pages/addtoys/AddToys";
 import Blogs from "../pages/blogs/Blogs";
 import ErrorPage from "../pages/errorpage/ErrorPage";
-import ToyDetails from "../pages/toydetails/ToyDetails";
+import ToyDetails from "../pages/cardetails/CarDetails";
 import PrivateRoute from "./PrivateRoute";
 import AllCars from "../pages/allcars/AllCars";
+import AddCars from "../pages/addcars/AddCars";
+import MyCars from "../pages/mycars/MyCars";
 
 const router = createBrowserRouter([
   {
@@ -32,11 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/mycars',
-        element: <PrivateRoute><MyToys /></PrivateRoute>
+        element: <PrivateRoute><MyCars /></PrivateRoute>
       },
       {
         path: '/addcars',
-        element: <PrivateRoute><AddToys /></PrivateRoute>
+        element: <PrivateRoute><AddCars /></PrivateRoute>
       },
       {
         path: '/blogs',

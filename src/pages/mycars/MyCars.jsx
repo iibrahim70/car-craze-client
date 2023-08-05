@@ -1,35 +1,35 @@
 import React, { useContext, useEffect, useState } from 'react';
 import useTitle from '../../components/hooks/useTitle';
 import { AuthContext } from '../../providers/AuthProvider';
-import MyToysTable from './MyToysTable';
+import MyCarsTable from './MyCarsTable';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import clsx from 'clsx';
 import axios from 'axios';
 
-const MyToys = () => {
-  useTitle('My Toys');
+const MyCars = () => {
+  useTitle('My Cars');
   const { user } = useContext(AuthContext);
-  const [myToys, setMyToys] = useState([]);
+  const [myCars, setMyCars] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [modalToy, setModalToy] = useState(null);
+  const [modalCar, setModalCar] = useState(null);
   const [sortOrder, setSortOrder] = useState('asc');
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
   useEffect(() => {
-    fetch(`https://car-craze-server-omega.vercel.app/mytoys?email=${user?.email}&sort=${sortOrder}`)
+    fetch(`https://car-craze-server-omega.vercel.app/mycars?email=${user?.email}&sort=${sortOrder}`)
       .then((res) => res.json())
-      .then((data) => setMyToys(data));
+      .then((data) => setMyCars(data));
   }, [user, sortOrder]);
 
   useEffect(() => {
-    if (modalToy) {
-      reset(modalToy);
+    if (modalCar) {
+      reset(modalCar);
     }
-  }, [modalToy, reset]);
+  }, [modalCar, reset]);
 
-  const handleDelete = (id) => {
+  const handleDelete = id => {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -40,15 +40,15 @@ const MyToys = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://car-craze-server-omega.vercel.app/mytoys/${id}`, {
+        fetch(`https://car-craze-server-omega.vercel.app/mycars/${id}`, {
           method: 'DELETE',
         })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
               Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
-              const remaining = myToys.filter((toys) => toys._id !== id);
-              setMyToys(remaining);
+              const remaining = myCars.filter(cars => cars._id !== id);
+              setMyCars(remaining);
             }
           });
       }
@@ -57,11 +57,11 @@ const MyToys = () => {
 
   const handleUpdate = (id) => {
     setIsOpen(true);
-    const data = myToys.find((toy) => toy._id === id);
-    setModalToy(data);
+    const data = myCars.find((car) => car._id === id);
+    setModalCar(data);
   };
 
-  const onSubmit = (updatedToy) => {
+  const onSubmit = updatedCar => {
     Swal.fire({
       title: 'Do you want to save the changes?',
       showDenyButton: true,
@@ -71,7 +71,7 @@ const MyToys = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .put(`https://car-craze-server-omega.vercel.app/mytoys/${modalToy._id}`, updatedToy)
+          .put(`https://car-craze-server-omega.vercel.app/mycars/${modalCar._id}`, updatedCar)
           .then((response) => {
             const updatedCount = response.data.modifiedCount;
             if (updatedCount === 1) {
@@ -79,22 +79,22 @@ const MyToys = () => {
             } else if (updatedCount === 0) {
               Swal.fire('No Changes', 'No changes were made.', 'info');
             } else {
-              Swal.fire('Error', 'An error occurred while updating the toy', 'error');
+              Swal.fire('Error', 'An error occurred while updating the car', 'error');
             }
 
-            const updatedToys = myToys.map((toy) => {
-              if (toy._id === modalToy._id) {
-                return { ...toy, ...updatedToy };
+            const updatedCar = myCars.map(car => {
+              if (car._id === modalCar._id) {
+                return { ...car, ...updatedCar };
               }
-              return toy;
+              return car;
             });
-            setMyToys(updatedToys);
+            setMyCars(updatedCar);
             setIsOpen(false);
-            reset(updatedToy);
+            reset(updatedCar);
           })
           .catch((error) => {
-            console.error('Error updating toy:', error);
-            Swal.fire('Error', 'An error occurred while updating the toy', 'error');
+            console.error('Error updating car:', error);
+            Swal.fire('Error', 'An error occurred while updating the car', 'error');
           });
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info');
@@ -125,7 +125,7 @@ const MyToys = () => {
           <thead>
             <tr>
               <th>Seller Name</th>
-              <th>Toy Name</th>
+              <th>Car Name</th>
               <th>Sub Category</th>
               <th>Price</th>
               <th>Quantity</th>
@@ -136,8 +136,8 @@ const MyToys = () => {
 
           {/* table body */}
           <tbody>
-            {myToys.map((toys) => (
-              <MyToysTable key={toys._id} toys={toys} handleDelete={handleDelete} handleUpdate={handleUpdate} />
+            {myCars.map((cars) => (
+              <MyCarsTable key={cars._id} cars={cars} handleDelete={handleDelete} handleUpdate={handleUpdate} />
             ))}
           </tbody>
         </table>
@@ -158,7 +158,7 @@ const MyToys = () => {
           <button onClick={handleClose}>❌</button>
         </div>
 
-        <h2 className='font-bold my-2 text-center text-xl capitalize'>{modalToy?.toyName}</h2>
+        <h2 className='font-bold my-2 text-center text-xl capitalize'>{modalCar?.carsName}</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="w-[70%] mx-auto">
           <div className="mb-4">
@@ -192,4 +192,4 @@ const MyToys = () => {
   );
 };
 
-export default MyToys;
+export default MyCars;
