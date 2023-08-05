@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const { user, logOut } = useContext(AuthContext); 
 
-  const navItems = <div className='space-x-5'>
+  const navItems = <div className='space-x-5 navItem'>
     <ActiveLink to='/'>Home</ActiveLink>
     <ActiveLink to='allcars'>All Cars</ActiveLink>
     <ActiveLink to='mycars'>My Cars</ActiveLink>

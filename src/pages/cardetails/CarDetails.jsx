@@ -3,15 +3,17 @@ import useTitle from '../../components/hooks/useTitle';
 import { useLoaderData } from 'react-router-dom';
 
 const ToyDetails = () => {
-  useTitle('Toy Details');
-  const toys = useLoaderData(); 
-  const { sellerName, sellerEmail, toyName, toyPicture, price, rating, quantity, description } = toys; 
+
+  useTitle('car Details');
+  const cars = useLoaderData(); 
+  const { sellerName, sellerEmail, carsName, carsPicture, price, rating, quantity, description } = cars; 
+  
   return (
     <div className='container mt-[104px] mb-10 md:mt-[144px] md:mb-20'>
       <div className='flex items-center gap-10 mb-5'>
-      <img className='w-[50%] h-full' src={toyPicture} alt="" />
+      <img className='w-[50%] h-full' src={carsPicture} alt="" />
       <div className='space-y-5'>
-        <h1 className='font-bold text-xl'>{toyName}</h1>
+        <h1 className='font-bold text-xl'>{carsName}</h1>
           <div className='space-y-2 font-medium'>
             <p>Seller Name: {sellerName}</p>
             <p>Seller Email: {sellerEmail}</p>

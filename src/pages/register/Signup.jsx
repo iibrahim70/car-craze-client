@@ -9,8 +9,10 @@ import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
 import useTitle from '../../components/hooks/useTitle';
 import { FcGoogle } from 'react-icons/fc';
+import Button from '../../components/button/Button';
 
 const Signup = () => {
+
   useTitle('Signup');
   const navigate = useNavigate();
   const location = useLocation();
@@ -66,19 +68,21 @@ const Signup = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen mt-[144px] mb-20 gap-y-10 md:gap-y-0">
+    <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen w-[90%] mx-auto">
 
       {/* left side animation */}
-      <div className="flex flex-col justify-center items-center">
-        <div className='w-[70%]'>
+      <div className="hidden lg:flex flex-col justify-center items-center">
+        <div className='w-[80%]'>
           <Lottie animationData={loginAnimation} loop={true} />
         </div>
       </div>
 
       {/* right side login form */}
       <div className="shadow-xl flex flex-col justify-center items-center py-10">
+        
         <h2 className='text-center text-4xl font-bold mb-10'>Signup</h2>
-        <form onSubmit={handleSubmit(onSubmit)} className='w-[70%] mx-auto'>
+        
+        <form onSubmit={handleSubmit(onSubmit)} className='w-[80%] mx-auto'>
           <div className="mb-4">
             <label className="block mb-1 font-medium">Name</label>
             <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('name', { required: true })} />
@@ -111,13 +115,16 @@ const Signup = () => {
             )}
           </div>
 
-          <input className="btn-primary w-full" type="submit" value="signup" />
+          <Button text='Signup' />
         </form>
+
         <div className="flex items-center mt-4">
           <p className="mr-2">Signin with</p>
           <FcGoogle onClick={handleGoogleSignIn} className='w-8 h-8 cursor-pointer'/>
         </div>
+
         <p className='mt-4'>Already have an account? <Link className='text-[#FF4136]' to='/signin'>Signin</Link></p>
+
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import 'aos/dist/aos.css';
 import GalleryItem from './GalaryItem';
 
 const PhotoGalary = () => {
+  
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);

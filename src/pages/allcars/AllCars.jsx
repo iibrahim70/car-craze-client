@@ -2,23 +2,37 @@ import React, { useEffect, useState } from 'react';
 import useTitle from '../../components/hooks/useTitle';
 import { useForm } from 'react-hook-form';
 import AllCarsTable from './AllCarsTable';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
 const AllCars = () => {
   useTitle('All Cars');
-  const [allCars, setAllCars] = useState([]);
+  const [searchCars, setSearchCars] = useState([]);
+  const [cars, setCars] = useState([]);
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
-    fetch(`http://localhost:5000/serach-cars?limit=20&name=${data.searchQuery}`)
-      .then((res) => res.json())
-      .then((data) => setAllCars(data));
+  const onSubmit = data => {
+    axios.get(`https://car-craze-server-omega.vercel.app/serach-cars?limit=20&name=${data.searchQuery}`)
+      .then((res) => setSearchCars(res.data))
+      .catch((error) => console.error('Error fetching data:', error));
   };
 
-  useEffect(() => {
-    fetch('http://localhost:5000/cars?limit=20')
+  const { isLoading, error, data : allCars } = useQuery(['allCars'], () =>
+    fetch('https://car-craze-server-omega.vercel.app/cars?limit=20')
       .then((res) => res.json())
-      .then((data) => setAllCars(data));
-  }, []);
+  );
+
+  useEffect(() => {
+    if(allCars) setCars(allCars)
+  }, [allCars])
+
+  useEffect(() => {
+    if(searchCars) setCars(searchCars)
+  }, [searchCars])
+
+  if (isLoading) return <div className='flex items-center justify-center min-h-screen'>Loading...</div>;
+
+  if (error) return <div className='flex items-center justify-center min-h-screen'>Error: {error.message}</div>;
 
   return (
     <div className="mt-[104px] mb-10 md:mt-[144px] md:mb-20">
@@ -56,7 +70,7 @@ const AllCars = () => {
 
           {/* table body */}
           <tbody>
-            {allCars.map((cars) => (
+            {cars.map((cars) => (
               <AllCarsTable key={cars._id} cars={cars} />
             ))}
           </tbody>
@@ -67,3 +81,6 @@ const AllCars = () => {
 };
 
 export default AllCars;
+
+
+

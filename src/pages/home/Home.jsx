@@ -6,17 +6,19 @@ import useTitle from '../../components/hooks/useTitle';
 import Testimonial from '../../components/testimonial/Testimonial';
 import QualityClients from '../../components/qualityclients/QualityClients';
 import ChooseUs from '../../components/chooseus/ChooseUs';
+import BlogPost from '../../components/blogpost/BlogPost';
 
 
 const Home = () => {
   useTitle('Home');
   return (
-    <div className='overflow-x-hidden pt-[64px]'>
+    <div className='overflow-hidden pt-[64px]'>
       <Hero/>
       <PhotoGalary/>
       <ShopCategory/>
       <ChooseUs/>
       <QualityClients/>
+      <BlogPost/>
       <Testimonial/>
     </div>
   );

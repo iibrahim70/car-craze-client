@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CategoryCard = ({category}) => {
-  const { _id, carName, toyPicture, price, rating  } = category; 
+const CategoryCard = ({item}) => {
+  const { _id, carName, carsPicture, price, rating  } = item; 
   return (
     <div className="shadow-xl">
-      <figure className='h-52'><img className='h-[90%] w-full' src={toyPicture} alt="Toys" /></figure>
+      <figure className='h-52'><img className='h-[90%] w-full' src={carsPicture} alt="Toys" /></figure>
       <div className="ps-5 space-y-2">
         <h2 className="font-medium">{carName}</h2>
         <p>Price: ${price}</p>

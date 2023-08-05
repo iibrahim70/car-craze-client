@@ -4,36 +4,32 @@ import { AuthContext } from '../../providers/AuthProvider';
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
 import useTitle from '../../components/hooks/useTitle';
+import axios from 'axios';
 
-const AddToys = () => {
-  useTitle('Add Toys'); 
+const AddCars = () => {
+  useTitle('Add Cars'); 
   const {user} = useContext(AuthContext); 
-
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
-  const onSubmit = newToys => {
 
-    fetch('https://car-craze-server-omega.vercel.app/toys', {
-      method: 'POST',
-      headers: { 
-        'Content-Type': 'application/json' 
-      },
-      body: JSON.stringify(newToys)
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        if(data.insertedId){
+  const onSubmit = cars => {
+    axios.post('https://car-craze-server-omega.vercel.app/cars', cars)
+      .then(response => {
+        console.log(response.data)
+        if (response.data.insertedId) {
           Toastify({
             text: "Your Toy Is Added Successfully",
-            position: "center", 
+            position: "center",
             style: {
               background: "linear-gradient(to right, #1f5ebc, #0083d6, #00a1cb, #00b9a4, #2ecc71)",
-              }
-            }).showToast();
-            reset();
-          }
-        })
-    };
+            }
+          }).showToast();
+          reset();
+        }
+      })
+      .catch(error => {
+        console.error('Error adding car:', error);
+      });
+  };
 
   return (
     <div className='container mt-[104px] mb-10 md:mt-[144px] md:mb-20'>
@@ -58,17 +54,17 @@ const AddToys = () => {
             </div>
 
             <div className="mb-4">
-              <label className="block mb-1 font-medium">Toy Name</label>
-              <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('toyName', { required: true })} />
-              {errors.toyName && (
+              <label className="block mb-1 font-medium">Car Name</label>
+              <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('carsName', { required: true })} />
+              {errors.carsName && (
                 <span className="text-red-500 text-sm">This field is required</span>
               )}
             </div>
 
             <div className="mb-4">
-              <label className="block mb-1 font-medium">Picture URL of the toy</label>
-              <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]" {...register('toyPicture', { required: true })} />
-              {errors.toyPicture && (
+              <label className="block mb-1 font-medium">Picture URL of the Car</label>
+              <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]" {...register('carsPicture', { required: true })} />
+              {errors.carsPicture && (
                 <span className="text-red-500 text-sm">This field is required</span>
               )}
             </div>
@@ -118,7 +114,7 @@ const AddToys = () => {
             )}
           </div>
 
-          <input className="btn-primary w-full" type="submit" value="Add Toy" />
+          <input className="btn-primary w-full" type="submit" value="Add Car" />
 
         </form>
       </div>
@@ -126,7 +122,7 @@ const AddToys = () => {
   );
 };
 
-export default AddToys;
+export default AddCars;
 
 
 
