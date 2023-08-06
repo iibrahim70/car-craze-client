@@ -31,7 +31,6 @@ const AllCars = () => {
   }, [searchCars])
 
   if (isLoading) return <div className='flex items-center justify-center min-h-screen'>Loading...</div>;
-
   if (error) return <div className='flex items-center justify-center min-h-screen'>Error: {error.message}</div>;
 
   return (
@@ -61,7 +60,7 @@ const AllCars = () => {
             <tr>
               <th>Seller Name</th>
               <th>Car Name</th>
-              <th>Sub Category</th>
+              <th>Category</th>
               <th>Price</th>
               <th>Quantity</th>
               <th>View Details</th>

@@ -126,7 +126,7 @@ const MyCars = () => {
             <tr>
               <th>Seller Name</th>
               <th>Car Name</th>
-              <th>Sub Category</th>
+              <th>Category</th>
               <th>Price</th>
               <th>Quantity</th>
               <th>Delete</th>

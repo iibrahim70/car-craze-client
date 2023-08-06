@@ -11,14 +11,15 @@ import { FcGoogle } from 'react-icons/fc';
 import Button from '../../components/button/Button';
 
 const Signin = () => {
+
   useTitle('Signin');
   const navigate = useNavigate(); 
   const location = useLocation(); 
   const from = location.state?.from?.pathname || '/'; 
 
   const {signIn, googleSignIn, setUser} = useContext(AuthContext); 
-
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  
   const onSubmit = user => {
     const {email, password} = user;
     signIn(email, password)
