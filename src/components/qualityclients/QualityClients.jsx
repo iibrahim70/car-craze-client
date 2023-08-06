@@ -12,13 +12,13 @@ const QualityClients = () => {
         <img src="https://i.ibb.co/0GtP8Z1/full-length-confident-young-businesswoman-coming-out-her-vehicle-496169-1184.jpg" alt="" />
       </div>
       <div data-aos='zoom-in-down'>
-        <h2 className='text-4xl md:text-4xl font-bold'>Only Quality For Clients</h2>
+        <h2 className='text-4xl md:text-4xl font-bold'>Explore Our Diverse Car Collection</h2>
         <div className='flex gap-5 mt-5'>
-          <button className='inline-flex items-center justify-center capitalize lg:text-base lg:px-6 md:px-4 px-3 lg:py-3 py-2 mb-3 font-medium text-black transition hover:drop-shadow-2xl border-none shadow-xl md:mb-0 bg-[#2ECC71] hover:bg-green-500 duration-700'>Luxury</button>
-          <button className='btn-secondaryy'>Comfort</button>
-          <button className='btn-secondaryy'>Prestige</button>
+          <button className='inline-flex items-center justify-center capitalize lg:text-base lg:px-6 md:px-4 px-3 lg:py-3 py-2 mb-3 font-medium text-black transition hover:drop-shadow-2xl border-none shadow-xl md:mb-0 bg-[#2ECC71] hover:bg-green-500 duration-700'>Sports Car</button>
+          <button className='btn-secondaryy'>Sedan</button>
+          <button className='btn-secondaryy'>SUV</button>
         </div>
-        <p className='mt-5'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto cupiditate aliquid error sequi nesciunt? Tenetur sunt harum a ut repellendus vitae rerum alias repellat incidunt, adipisci amet ea beatae unde labore veniam laudantium! Itaque culpa quos incidunt rem aliquam velit iure officiis cumque voluptatibus eos nihil similique architecto, at quo.</p>
+        <p className='mt-5'>Discover a wide range of cars, including sleek Sedans, versatile SUVs, and powerful Sports Cars. Whether you're looking for comfort, space, or adrenaline-pumping performance, our collection has the perfect ride to match your style and needs. Choose your dream car and hit the road in style and confidence.</p>
       </div>
     </div>
   );

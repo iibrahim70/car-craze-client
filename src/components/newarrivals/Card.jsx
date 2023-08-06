@@ -4,7 +4,7 @@ import SmallButton from '../button/SmallButton';
 
 const Card = ({ car }) => {
   return (
-    <div className='rounded p-4 mb-4 shadow-lg'>
+    <div className='rounded p-4 mb-4 shadow-lg hover:scale-110 transition-transform transform'>
       <h2 className='text-xl font-bold mb-2'>{car.name}</h2>
       <p>{car.category}</p>
       <div className='my-4'>

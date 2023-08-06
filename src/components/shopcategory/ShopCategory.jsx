@@ -45,7 +45,7 @@ const ShopCategory = () => {
       <div data-aos='zoom-in-left' className='flex gap-5'>
         <div onClick={() => handleTabClick("Sedan")} className={`shadow-xl p-3 text-black sedan ${activeTab === "Sedan" ? "bg-[#2ECC71] font-medium" : ""}`}>Sedan</div>
 
-        <div onClick={() => handleTabClick("SUV")} className={`shadow-xl p-3 text-black suv ${activeTab === "SUV" ? "bg-[#2ECC71] font-medium" : ""}`}>SUV</div>
+        <div onClick={() => handleTabClick("SUV")} className={`shadow-xl p-3 text-black suv ${activeTab === "SUV" ? "bg-[#2ECC71] font-medium" : ""}`}>Sport Utility Vehicle</div>
         
         <div onClick={() => handleTabClick("Sports Car")} className={`shadow-xl p-3 text-black sports-car ${activeTab === "Sports Car" ? "bg-[#2ECC71] font-medium" : ""}`}>Sports Car</div>
       </div>

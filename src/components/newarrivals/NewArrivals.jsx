@@ -24,7 +24,7 @@ const NewArrivals = () => {
         <p className='text-justify lg:text-center'>Explore our latest collection of new car arrivals featuring stylish sedans, <br className='hidden lg:flex' /> versatile SUVs, and exhilarating sports cars. Discover cutting-edge features, <br className='hidden lg:flex' /> exceptional mileage, and top-notch designs for an unforgettable driving experience. <br className='hidden lg:flex' /> Find the perfect car that matches your style and needs today!</p>
       </div>
 
-      <div className='grid grid-cols-3 gap-5 lg:gap-10'>
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-10'>
         {newCars.map((car) => (
           <Card key={car.name} car={car} />
         ))}
