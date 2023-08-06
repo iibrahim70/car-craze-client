@@ -2,18 +2,18 @@ import React from 'react';
 import useTitle from '../../components/hooks/useTitle';
 import { useLoaderData } from 'react-router-dom';
 
-const ToyDetails = () => {
+const CarDetails = () => {
 
   useTitle('car Details');
   const cars = useLoaderData(); 
-  const { sellerName, sellerEmail, carsName, carsPicture, price, rating, quantity, description } = cars; 
+  const { sellerName, sellerEmail, name, image, price, rating, quantity, description } = cars; 
   
   return (
     <div className='container mt-[104px] mb-10 md:mt-[144px] md:mb-20'>
       <div className='flex items-center gap-10 mb-5'>
-      <img className='w-[50%] h-full' src={carsPicture} alt="" />
+      <img className='w-[50%] h-full' src={image} alt="" />
       <div className='space-y-5'>
-        <h1 className='font-bold text-xl'>{carsName}</h1>
+        <h1 className='font-bold text-xl'>{name}</h1>
           <div className='space-y-2 font-medium'>
             <p>Seller Name: {sellerName}</p>
             <p>Seller Email: {sellerEmail}</p>
@@ -29,5 +29,5 @@ const ToyDetails = () => {
   );
 };
 
-export default ToyDetails;
+export default CarDetails;
 

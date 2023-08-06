@@ -18,8 +18,8 @@ const Testimonial = () => {
     .then((res) => res.json())
   );
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (isLoading) return <div className='flex items-center justify-center min-h-screen'>Loading...</div>;
+  if (error) return <div className='flex items-center justify-center min-h-screen'>Error: {error.message}</div>;
 
   const swiperBreakpoints = {
     320: {
@@ -52,8 +52,8 @@ const Testimonial = () => {
         breakpoints={swiperBreakpoints}
       >
         {reviews.map((item, index) => (
-          <SwiperSlide key={index}>
-            <div data-aos='fade-left' className="bg-slate-50 rounded-xl space-y-3 p-5 shadow-xl text-center h-80">
+          <SwiperSlide className='mb-5' key={index}>
+            <div data-aos='fade-left' className="rounded-xl space-y-3 p-5 shadow-xl text-center h-80">
               <div className="avatar">
                 <div className="w-24 rounded-full">
                   <img src={item.image} alt={`Photo of ${item.name}`} />

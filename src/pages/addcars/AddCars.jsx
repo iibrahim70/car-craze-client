@@ -55,16 +55,16 @@ const AddCars = () => {
 
             <div className="mb-4">
               <label className="block mb-1 font-medium">Car Name</label>
-              <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('carsName', { required: true })} />
-              {errors.carsName && (
+              <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('name', { required: true })} />
+              {errors.name && (
                 <span className="text-red-500 text-sm">This field is required</span>
               )}
             </div>
 
             <div className="mb-4">
               <label className="block mb-1 font-medium">Picture URL of the Car</label>
-              <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]" {...register('carsPicture', { required: true })} />
-              {errors.carsPicture && (
+              <input className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]" {...register('image', { required: true })} />
+              {errors.image && (
                 <span className="text-red-500 text-sm">This field is required</span>
               )}
             </div>
@@ -94,13 +94,13 @@ const AddCars = () => {
             </div>
 
             <div className="mb-4">
-              <label className="block mb-[7px] font-medium">Sub Category</label>
-              <select className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('subCategory', { required: true })}>
-                <option value="sports-car">Sports Car</option>
-                <option value="mini-fire-truck">Mini Fire Truck</option>
-                <option value="police-car">Police Car</option>
+              <label className="block mb-[7px] font-medium">Category</label>
+              <select className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"{...register('category', { required: true })}>
+                <option value="Sports Car">Sports Car</option>
+                <option value="Sedan">Sedan</option>
+                <option value="SUV">SUV</option>
               </select>
-              {errors.subCategory && (
+              {errors.category && (
                 <span className="text-red-500 text-sm">This field is required</span>
               )}
             </div>

@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CategoryCard = ({item}) => {
-  const { _id, carName, carsPicture, price, rating  } = item; 
+  const { _id, name, image, price, rating  } = item; 
   return (
     <div className="shadow-xl">
-      <figure className='h-52'><img className='h-[90%] w-full' src={carsPicture} alt="Toys" /></figure>
+      <img className='h-[180px] w-full' src={image} alt="Toys" />
       <div className="ps-5 space-y-2">
-        <h2 className="font-medium">{carName}</h2>
+        <h2 className="font-medium">{name}</h2>
         <p>Price: ${price}</p>
         <p>Ratings: {rating}</p>
         <div className="flex justify-end pr-5 pb-2">

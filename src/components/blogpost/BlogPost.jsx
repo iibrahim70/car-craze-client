@@ -41,7 +41,7 @@ const BlogPost = () => {
 
       <div data-aos='fade-left' className="grid grid-cols-1 gap-y-5">
         {blogPosts.map((post, index) => (
-          <div key={index} className='flex flex-col lg:flex-row rounded-lg border-b-[1px] border-[#212121] p-1'>
+          <div key={index} className='flex flex-col lg:flex-row rounded-lg border-b-[1px] border-[#212121] p-5'>
             <div className='flex-1 flex justify-center flex-col space-y-2 text-justify mb-2 lg:mb-0'>
               <h2 className='text-xl font-semibold'>{post.title}</h2>
               <p>{post.description}</p>

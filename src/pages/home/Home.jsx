@@ -7,6 +7,7 @@ import Testimonial from '../../components/testimonial/Testimonial';
 import QualityClients from '../../components/qualityclients/QualityClients';
 import ChooseUs from '../../components/chooseus/ChooseUs';
 import BlogPost from '../../components/blogpost/BlogPost';
+import NewArrivals from '../../components/newarrivals/newArrivals';
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
   return (
     <div className='overflow-hidden pt-[64px]'>
       <Hero/>
+      <NewArrivals/>
       <PhotoGalary/>
       <ShopCategory/>
       <ChooseUs/>
