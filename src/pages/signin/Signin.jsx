@@ -4,11 +4,10 @@ import Lottie from 'lottie-react';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
-import Toastify from 'toastify-js'
-import "toastify-js/src/toastify.css"
 import useTitle from '../../components/hooks/useTitle';
 import { FcGoogle } from 'react-icons/fc';
 import Button from '../../components/button/Button';
+import useToast from '../../hooks/useToast';
 
 const Signin = () => {
 
@@ -17,40 +16,33 @@ const Signin = () => {
   const location = useLocation(); 
   const from = location.state?.from?.pathname || '/'; 
 
-  const {signIn, googleSignIn, setUser} = useContext(AuthContext); 
+  const {signIn, googleSignIn} = useContext(AuthContext);
+  const { showToast } = useToast(); 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   
   const onSubmit = user => {
-    const {email, password} = user;
+    const { email, password } = user;
     signIn(email, password)
-      .then(res => {
-        const user = res.user;
-        navigate(from, {replace: true}); 
-        console.log(user);
-        setUser(user);
+      .then(() => {
+        navigate(from, { replace: true });
+        showToast('Welcome back to car craze!');
         reset();
       })
       .catch(err => {
-        console.log(err);
-        Toastify({
-          text: (err.message),
-          position: "center",
-          style: {
-            background: "linear-gradient(to right, #1f5ebc, #0083d6, #00a1cb, #00b9a4, #2ecc71)",
-          }
-        }).showToast();
+        showToast(err.message);
+        console.error(err);
       });
   }
 
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then(res => {
-        const loggedUser = res.user;
+      .then(() => {
+        showToast('Welcome Back To Car Craze!');
         navigate(from);
-        console.log(loggedUser);
       })
       .catch(err => {
-        console.log(err);
+        showToast(err.message);
+        console.err(err);
       })
   }
 
