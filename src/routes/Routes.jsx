@@ -1,8 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Home from "../pages/home/Home";
-import Signin from "../pages/register/Signin";
-import Signup from "../pages/register/Signup";
+import Signup from "../pages/signup/Signup";
 import Blogs from "../pages/blogs/Blogs";
 import ErrorPage from "../pages/errorpage/ErrorPage";
 import ToyDetails from "../pages/cardetails/CarDetails";
@@ -10,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import AllCars from "../pages/allcars/AllCars";
 import AddCars from "../pages/addcars/AddCars";
 import MyCars from "../pages/mycars/MyCars";
+import Signin from "../pages/signin/Signin";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: '/car-details/:id',
         element: <ToyDetails/>,
-        loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`)
+        loader: ({ params }) => fetch(`https://car-craze-server-omega.vercel.app/cars/${params.id}`)
       },
       {
         path: '/mycars',

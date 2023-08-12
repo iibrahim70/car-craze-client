@@ -10,6 +10,7 @@ import "toastify-js/src/toastify.css"
 import useTitle from '../../components/hooks/useTitle';
 import { FcGoogle } from 'react-icons/fc';
 import Button from '../../components/button/Button';
+import useToast from '../../hooks/useToast';
 
 const Signup = () => {
 
@@ -18,52 +19,36 @@ const Signup = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';  
 
-  const { createUser, setUser, auth, googleSignIn } = useContext(AuthContext); 
-
+  const { showToast } = useToast(); 
+  const { createUser, googleSignIn, updateUserProfile } = useContext(AuthContext); 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  
   const onSubmit = user => {
     const { name, email, password, photoUrl } = user;
     
     createUser(email, password)
-      .then((res) => {
-        const user = res.user;
+      .then(() => {
         navigate(from, { replace: true });
-        console.log(user);
-        setUser(user);
+        updateUserProfile(name, photoUrl)
+        showToast('Signup successful! Welcome to our website.');
         reset(); 
-        
-        updateProfile(auth.currentUser, {
-          displayName: name, photoURL: photoUrl
-        }).then(() => {
-          // Profile updated!
-          // ...
-        }).catch((error) => {
-          // An error occurred
-          // ...
-        });
       })
       .catch(err => {
-        console.log(err);
-        Toastify({
-          text: (err.message),
-          position: "center",
-          style: {
-            background: "linear-gradient(to right, #1f5ebc, #0083d6, #00a1cb, #00b9a4, #2ecc71)",
-          }
-        }).showToast();
+        showToast(err.message);
+        console.error(err);
       });
   }
 
 
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then(res => {
-        const loggedUser = res.user;
-        navigate(from, { replace: true });
-        console.log(loggedUser);
+      .then(() => {
+        showToast('Welcome Back To Car Craze!');
+        navigate(from);
       })
       .catch(err => {
-        console.log(err);
+        showToast(err.message);
+        console.err(err);
       })
   }
 
