@@ -16,19 +16,20 @@ h1,
 h2,
 h3,
 h4 {
-  color: #212121;
+  color: #1e212a;
   font-family: "Montserrat", sans-serif;
 }
 
+td,
 p,
 a {
-  color: #212121;
+  color: #1e212a;
   font-family: "Poppins", sans-serif;
 }
 
 .footer p,
 a {
-  color: #f2f6fc;
+  color: #fafafa;
 }
 
 .btn-primary {
