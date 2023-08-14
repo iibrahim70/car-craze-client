@@ -66,8 +66,8 @@ const ShopCategory = () => {
       <div className="flex gap-5">
         <div
           onClick={() => handleTabClick("Sedan")}
-          className={`shadow-xl p-3 text-black sedan cursor-pointer ${
-            activeTab === "Sedan" ? "bg-[#2ECC71] font-medium" : ""
+          className={`shadow-xl px-5 py-3 text-black cursor-pointer font-medium rounded ${
+            activeTab === "Sedan" ? "bg-red text-white" : ""
           }`}
         >
           Sedan
@@ -75,8 +75,8 @@ const ShopCategory = () => {
 
         <div
           onClick={() => handleTabClick("SUV")}
-          className={`shadow-xl p-3 text-black suv cursor-pointer ${
-            activeTab === "SUV" ? "bg-[#2ECC71] font-medium" : ""
+          className={`shadow-xl px-5 py-3 text-black cursor-pointer font-medium rounded ${
+            activeTab === "SUV" ? "bg-red text-white" : ""
           }`}
         >
           Sport Utility Vehicle
@@ -84,8 +84,8 @@ const ShopCategory = () => {
 
         <div
           onClick={() => handleTabClick("Sports Car")}
-          className={`shadow-xl p-3 text-black sports-car cursor-pointer ${
-            activeTab === "Sports Car" ? "bg-[#2ECC71] font-medium" : ""
+          className={`shadow-xl px-5 py-3 text-black cursor-pointer font-medium rounded ${
+            activeTab === "Sports Car" ? "bg-red text-white" : ""
           }`}
         >
           Sports Car

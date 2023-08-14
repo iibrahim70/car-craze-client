@@ -9,8 +9,10 @@ export default {
     extend: {
       colors: {
         black: "#1e212a",
+        white: "#fafafa",
         red: "#d9114a",
-        green: "",
+        green: "#01b376",
+        purple: "#5E32C0",
       },
     },
   },

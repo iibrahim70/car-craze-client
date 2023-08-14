@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import Button from "../../components/button/Button";
 
 const CarDetails = () => {
-  useTitle("car Details");
+  useTitle("Car Details");
   const cars = useLoaderData();
 
   const {
@@ -30,7 +30,7 @@ const CarDetails = () => {
             <p>Price: ${price}</p>
             <p>Rating: {rating}</p>
             <p>Availabe Quantity: {quantity}</p>
-            <Button text="Order Now" />
+            <Button placehoder="Order Now" />
           </div>
         </div>
       </div>

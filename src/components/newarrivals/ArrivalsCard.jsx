@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BsFillFuelPumpFill, BsFillPeopleFill, BsGear } from "react-icons/bs";
-import SmallButton from "../button/SmallButton";
+import Button from "../button/Button";
 import Aos from "aos";
 
 const ArrivalsCard = ({ car, index }) => {
@@ -44,7 +44,7 @@ const ArrivalsCard = ({ car, index }) => {
 
       <div className="flex justify-between items-center">
         <h4 className="text-lg font-semibold">${car.price}</h4>
-        <SmallButton text="Buy Now" />
+        <Button placehoder="Buy Now" size="small" colors="secondary" />
       </div>
     </div>
   );

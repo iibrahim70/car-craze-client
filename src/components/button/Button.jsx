@@ -1,13 +1,39 @@
 import React from "react";
+import { cva } from "class-variance-authority";
+import { Link } from "react-router-dom";
+import clsx from "clsx";
 
-const Button = ({ text, onClick }) => {
+const buttonVariants = cva(
+  "inline-block text-center rounded active:scale-105 transition duration-300 ease-in-out text-white font-medium",
+  {
+    variants: {
+      colors: {
+        primary: "bg-red hover:bg-red/90",
+        secondary: "bg-green hover:bg-green/90",
+        purple: "bg-purple hover:bg-purple/90",
+      },
+      size: {
+        default: "py-3 px-6",
+        large: "py-3 w-full",
+        small: "py-2 px-4",
+      },
+    },
+    defaultVariants: {
+      colors: "primary",
+      size: "default",
+    },
+  }
+);
+
+const Button = ({ to, onClick, placehoder, colors, size }) => {
   return (
-    <button
-      className="flex items-center justify-center capitalize  px-3 md:px-4 xl:px-6 py-2 lg:py-3 font-medium text-white transition hover:drop-shadow-2xl rounded shadow-xl duration-700 bg-red hover:bg-red/70"
+    <Link
+      to={to}
       onClick={onClick}
+      className={clsx(buttonVariants({ colors, size }))}
     >
-      {text}
-    </button>
+      {placehoder}
+    </Link>
   );
 };
 
