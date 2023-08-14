@@ -24,9 +24,9 @@ const Hero = () => {
           Browse through our wide selection of top-quality vehicles and find the
           perfect match for your needs and desires.
         </p>
-        <Link to="/allcars">
-          <Button text="View Cars" />
-        </Link>
+        <div>
+          <Button to="/allcars" placehoder="View Cars" />
+        </div>
       </div>
 
       <div data-aos="fade-down" className="flex justify-center items-center">
