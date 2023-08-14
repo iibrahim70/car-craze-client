@@ -4,17 +4,19 @@ import { Link } from "react-router-dom";
 import clsx from "clsx";
 
 const buttonVariants = cva(
-  "inline-block text-center rounded active:scale-105 transition duration-300 ease-in-out text-white font-medium",
+  "inline-block text-center rounded active:scale-105 transition duration-300 ease-in-out font-medium",
   {
     variants: {
       colors: {
-        primary: "bg-red hover:bg-red/90",
-        secondary: "bg-green hover:bg-green/90",
-        purple: "bg-purple hover:bg-purple/90",
+        primary: "bg-red hover:bg-red/90 text-white",
+        secondary: "bg-green hover:bg-green/90 text-white",
+        transparent:
+          "bg-transparent hover:bg-black/10 text-black border border-black",
+        purple: "bg-purple hover:bg-purple/90 text-white",
       },
       size: {
         default: "py-3 px-6",
-        large: "py-3 w-full",
+        full: "py-3 w-full",
         small: "py-2 px-4",
       },
     },
@@ -25,14 +27,15 @@ const buttonVariants = cva(
   }
 );
 
-const Button = ({ to, onClick, placehoder, colors, size }) => {
+const Button = ({ to, onClick, type, colors, size, children }) => {
   return (
     <Link
       to={to}
       onClick={onClick}
+      type={type}
       className={clsx(buttonVariants({ colors, size }))}
     >
-      {placehoder}
+      {children}
     </Link>
   );
 };

@@ -44,7 +44,7 @@ const AddCars = () => {
           <div className="mb-4">
             <label className="block mb-1 font-medium">Seller Name</label>
             <input
-              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b]"
+              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               defaultValue={user?.displayName}
               {...register("sellerName", { required: true })}
             />
@@ -58,7 +58,7 @@ const AddCars = () => {
           <div className="mb-4">
             <label className="block mb-1 font-medium">Seller Email</label>
             <input
-              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b]"
+              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               defaultValue={user?.email}
               {...register("sellerEmail", { required: true })}
             />
@@ -72,7 +72,7 @@ const AddCars = () => {
           <div className="mb-4">
             <label className="block mb-1 font-medium">Car Name</label>
             <input
-              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b]"
+              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               {...register("name", { required: true })}
             />
             {errors.name && (
@@ -87,7 +87,7 @@ const AddCars = () => {
               Picture URL of the Car
             </label>
             <input
-              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b]"
+              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               {...register("image", { required: true })}
             />
             {errors.image && (
@@ -100,7 +100,7 @@ const AddCars = () => {
           <div className="mb-4">
             <label className="block mb-1 font-medium">Price</label>
             <input
-              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b]"
+              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               {...register("price", { required: true, min: 0 })}
             />
             {errors.price && (
@@ -113,7 +113,7 @@ const AddCars = () => {
           <div className="mb-4">
             <label className="block mb-1 font-medium">Rating</label>
             <input
-              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b]"
+              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               {...register("rating", { required: true, min: 0, max: 6 })}
             />
             {errors.rating && (
@@ -126,7 +126,7 @@ const AddCars = () => {
           <div className="mb-4">
             <label className="block mb-1 font-medium">Available Quantity</label>
             <input
-              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b]"
+              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               {...register("quantity", { required: true, min: 0 })}
             />
             {errors.quantity && (
@@ -139,7 +139,7 @@ const AddCars = () => {
           <div className="mb-4">
             <label className="block mb-1.5 font-medium">Category</label>
             <select
-              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b]"
+              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               {...register("category", { required: true })}
             >
               <option value="Sports Car">Sports Car</option>
@@ -158,7 +158,7 @@ const AddCars = () => {
           <label className="block mb-1 font-medium">Detail Description</label>
           <textarea
             rows="4"
-            className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b]"
+            className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
             {...register("description", { required: true })}
           ></textarea>
           {errors.description && (
@@ -166,7 +166,7 @@ const AddCars = () => {
           )}
         </div>
 
-        <Button text="Add Car" />
+        <Button children="Add Car" size="full" />
       </form>
     </section>
   );

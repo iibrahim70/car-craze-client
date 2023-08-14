@@ -41,7 +41,7 @@ const CategoryCard = ({ item, index }) => {
           <h4 className="text-lg font-semibold">${price}</h4>
           <Button
             to={`/car-details/${_id}`}
-            placehoder="Details"
+            children="Details"
             colors="purple"
             size="small"
           />
