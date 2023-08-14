@@ -63,7 +63,7 @@ const ShopCategory = () => {
         />
       </div>
 
-      <div data-aos="zoom-in-left" className="flex gap-5">
+      <div className="flex gap-5">
         <div
           onClick={() => handleTabClick("Sedan")}
           className={`shadow-xl p-3 text-black sedan cursor-pointer ${
@@ -92,12 +92,9 @@ const ShopCategory = () => {
         </div>
       </div>
 
-      <div
-        data-aos="zoom-out-right"
-        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 pt-5"
-      >
-        {filteredData.map((item) => (
-          <CategoryCard key={item._id} item={item} />
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 pt-5">
+        {filteredData.map((item, index) => (
+          <CategoryCard key={index} item={item} index={index} />
         ))}
       </div>
     </section>

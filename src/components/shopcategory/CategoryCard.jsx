@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Rating from "react-rating";
 import SmallButton from "../button/SmallButton";
+import Aos from "aos";
 
-const CategoryCard = ({ item }) => {
+const CategoryCard = ({ item, index }) => {
   const { _id, name, image, price, rating, category } = item;
 
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+
   return (
-    <div className="shadow-xl">
+    <div
+      className="shadow-xl"
+      data-aos={
+        index % 3 === 0
+          ? "fade-up-left"
+          : index % 3 === 1
+          ? "fade-down"
+          : "fade-up-right"
+      }
+    >
       <img className="h-[180px] w-full object-cover" src={image} alt="Toys" />
       <div className="p-5 space-y-2">
         <h3 className="text-xl font-bold">{name}</h3>

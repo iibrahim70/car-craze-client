@@ -49,7 +49,7 @@ const Testimonial = () => {
 
   return (
     <div className="mt-10 lg:mt-20">
-      <div data-aos="fade-right">
+      <div data-aos="fade-down">
         <SectionTitle
           title="Our Client's Voice"
           description="Discover what our clients have to say about their car-buying experiences. From sports car enthusiasts to Mini Fire Truck owners and police officers, read their stories and find inspiration for your own journey."
@@ -73,7 +73,7 @@ const Testimonial = () => {
         {reviews.map((item, index) => (
           <SwiperSlide className="mb-10 lg:mb-20" key={index}>
             <div
-              data-aos="fade-left"
+              data-aos="fade-right"
               className="rounded-xl space-y-3 p-5 shadow-xl text-center h-80 flex items-center justify-center flex-col"
             >
               <div className="avatar">

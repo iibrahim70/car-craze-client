@@ -4,5 +4,14 @@ export default {
   daisyui: {
     themes: false,
   },
-  plugins: [require("daisyui"), require('tailwind-scrollbar')],
+  plugins: [require("daisyui")],
+  theme: {
+    extend: {
+      colors: {
+        black: "#1e212a",
+        red: "#d9114a",
+        green: "",
+      },
+    },
+  },
 };
