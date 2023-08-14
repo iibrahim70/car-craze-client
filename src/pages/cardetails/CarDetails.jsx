@@ -30,7 +30,7 @@ const CarDetails = () => {
             <p>Price: ${price}</p>
             <p>Rating: {rating}</p>
             <p>Availabe Quantity: {quantity}</p>
-            <Button placehoder="Order Now" />
+            <Button children="Order Now" />
           </div>
         </div>
       </div>

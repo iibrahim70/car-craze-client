@@ -5,9 +5,9 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import useTitle from "../../components/hooks/useTitle";
-import { FcGoogle } from "react-icons/fc";
 import Button from "../../components/button/Button";
 import useToast from "../../hooks/useToast";
+import SocialLogin from "../../components/shared/SocialLogin";
 
 const Signin = () => {
   useTitle("Signin");
@@ -15,7 +15,7 @@ const Signin = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const { signIn, googleSignIn } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
   const { showToast } = useToast();
   const {
     register,
@@ -38,20 +38,8 @@ const Signin = () => {
       });
   };
 
-  const handleGoogleSignIn = () => {
-    googleSignIn()
-      .then(() => {
-        showToast("Welcome Back To Car Craze!");
-        navigate(from);
-      })
-      .catch((err) => {
-        showToast(err.message);
-        console.err(err);
-      });
-  };
-
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen w-[90%] mx-auto">
+    <div className="grid grid-cols-1 lg:grid-cols-2 w-[90%] md:w-[50%] lg:w-[90%] mx-auto min-h-screen">
       {/* left side animation */}
       <div className="hidden lg:flex flex-col justify-center items-center">
         <div className="w-[80%]">
@@ -60,14 +48,14 @@ const Signin = () => {
       </div>
 
       {/* right side login form */}
-      <div className="shadow-xl flex flex-col justify-center items-center py-10">
+      <div className="shadow-xl p-10 flex items-center justify-center flex-col w-full">
         <h2 className="text-center text-4xl font-bold mb-10">Login</h2>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="w-[80%] mx-auto">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full">
           <div className="mb-4">
             <label className="block mb-1 font-medium">Email</label>
             <input
-              className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"
+              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               {...register("email", { required: true })}
             />
             {errors.email && (
@@ -80,7 +68,7 @@ const Signin = () => {
           <div className="mb-4">
             <label className="block mb-1 font-medium">Password</label>
             <input
-              className="w-full border-b border-[#212121] py-2 px-3 focus:outline-none focus:border-[#2ECC71] focus:ring-2 focus:ring-[#bg-gradient-to-r from-transparent via-lime-700 to-cyan-600]"
+              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               type="password"
               {...register("password", { required: true })}
             />
@@ -91,20 +79,15 @@ const Signin = () => {
             )}
           </div>
 
-          <Button placehoder="Signin" colors="secondary" size="large" />
+          <Button children="Signin" colors="secondary" size="full" />
         </form>
 
-        <div className="flex items-center mt-4">
-          <p className="mr-2">Signin with</p>
-          <FcGoogle
-            onClick={handleGoogleSignIn}
-            className="w-8 h-8 cursor-pointer"
-          />
-        </div>
+        {/* social login */}
+        <SocialLogin />
 
-        <p className="mt-4">
+        <p className="w-full">
           Don't have an account yet?{" "}
-          <Link className="text-[#FF4136]" to="/signup">
+          <Link className="text-red" to="/signup">
             Signup
           </Link>
         </p>

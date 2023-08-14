@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Button from "../button/Button";
 
 const OurServices = () => {
   useEffect(() => {
@@ -19,11 +20,9 @@ const OurServices = () => {
           Explore Our Diverse Car Collection
         </h2>
         <div className="flex gap-5 mt-5">
-          <button className="inline-flex items-center justify-center capitalize lg:text-base lg:px-6 md:px-4 px-3 lg:py-3 py-2 mb-3 font-medium text-black transition hover:drop-shadow-2xl border-none shadow-xl md:mb-0 bg-[#2ECC71] hover:bg-green-500 duration-700">
-            Sports Car
-          </button>
-          <button className="btn-secondaryy">Sedan</button>
-          <button className="btn-secondaryy">SUV</button>
+          <Button children="Sports Car" colors="secondary" size="small" />
+          <Button children="Sedan" colors="secondary" size="small" />
+          <Button children="SUV" colors="secondary" size="small" />
         </div>
         <p className="mt-5">
           Discover a wide range of cars, including sleek Sedans, versatile SUVs,

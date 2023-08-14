@@ -44,7 +44,7 @@ const ArrivalsCard = ({ car, index }) => {
 
       <div className="flex justify-between items-center">
         <h4 className="text-lg font-semibold">${car.price}</h4>
-        <Button placehoder="Buy Now" size="small" colors="secondary" />
+        <Button children="Buy Now" size="small" colors="secondary" />
       </div>
     </div>
   );

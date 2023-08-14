@@ -25,7 +25,7 @@ const Hero = () => {
           perfect match for your needs and desires.
         </p>
         <div>
-          <Button to="/allcars" placehoder="View Cars" />
+          <Button to="/allcars" children="View Cars" />
         </div>
       </div>
 
