@@ -1,12 +1,12 @@
-import React from 'react';
-import logo from '../../assets/logo/white-logo.ico';
+import React from "react";
+import logo from "../../assets/logo/white-logo.ico";
 
 const Footer = () => {
   return (
-    <div className='bg-[#212121] footer'>
+    <div className="bg-black footer">
       <div className="footer w-[90%] mx-auto text-base-content py-10">
         <div>
-          <img className='h-8 mb-5' src={logo} alt="" />
+          <img className="h-8 mb-5" src={logo} alt="" />
           <p>© 2023 Car Craze Ltd - All rights reserved.</p>
         </div>
         <div>

@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsFillFuelPumpFill, BsFillPeopleFill, BsGear } from "react-icons/bs";
 import SmallButton from "../button/SmallButton";
+import Aos from "aos";
 
-const ArrivalsCard = ({ car }) => {
+const ArrivalsCard = ({ car, index }) => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+
   return (
-    <div className="rounded-md p-4 shadow-xl">
+    <div
+      className="rounded-md p-4 shadow-xl"
+      data-aos={
+        index % 3 === 0
+          ? "fade-down-left"
+          : index % 3 === 1
+          ? "fade-up"
+          : "fade-down-right"
+      }
+    >
       <h3 className="text-xl font-bold mb-2">{car.name}</h3>
       <p>{car.category}</p>
 

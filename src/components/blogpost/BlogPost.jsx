@@ -44,11 +44,18 @@ const BlogPost = () => {
         />
       </div>
 
-      <div data-aos="fade-left" className="grid grid-cols-1 gap-y-5">
+      <div className="grid grid-cols-1 gap-y-5">
         {blogPosts.map((post, index) => (
           <div
             key={index}
-            className="flex flex-col lg:flex-row border-b-[1px] border-[#212121] p-5"
+            data-aos={
+              index % 3 === 0
+                ? "fade-left"
+                : index % 3 === 1
+                ? "fade-up"
+                : "fade-right"
+            }
+            className="flex flex-col lg:flex-row border-b-[1px] border-black p-5"
           >
             <div className="flex-1 flex justify-center flex-col space-y-2 text-justify mb-2 lg:mb-0">
               <h3 className="text-xl font-bold">{post.title}</h3>

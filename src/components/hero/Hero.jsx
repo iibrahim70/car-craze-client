@@ -18,7 +18,7 @@ const Hero = () => {
         className="space-y-5 flex justify-center flex-col"
       >
         <h1 className="text-5xl lg:text-6xl font-bold">
-          Discover Your <br /> <span className="text-[#2ECC71]">Dream</span> Car
+          Discover Your <br /> <span className="text-red">Dream</span> Car
         </h1>
         <p className="text-justify md:w-2/3">
           Browse through our wide selection of top-quality vehicles and find the

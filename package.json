@@ -14,6 +14,7 @@
     "aos": "^2.3.4",
     "autoprefixer": "^10.4.14",
     "axios": "^1.4.0",
+    "class-variance-authority": "^0.7.0",
     "clsx": "^1.2.1",
     "daisyui": "^2.51.6",
     "firebase": "^9.22.0",
@@ -30,6 +31,7 @@
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.7.5",
     "swiper": "^10.1.0",
+    "tailwind-merge": "^1.14.0",
     "tailwindcss": "^3.3.2",
     "toastify-js": "^1.12.0"
   },

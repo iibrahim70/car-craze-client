@@ -35,7 +35,7 @@ const NewArrivals = () => {
 
   return (
     <section>
-      <div data-aos="fade-right">
+      <div data-aos="fade-down">
         <SectionTitle
           title="New Car Arrivals"
           description="Explore our latest collection of new car arrivals featuring stylish sedans, versatile SUVs, and exhilarating sports cars. Discover cutting-edge features,exceptional mileage, and top-notch designs for an unforgettable driving experience. Find the perfect car that matches your style and needs today!"
@@ -43,8 +43,8 @@ const NewArrivals = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-10">
-        {newCars.map((car) => (
-          <ArrivalsCard key={car.name} car={car} />
+        {newCars.map((car, index) => (
+          <ArrivalsCard key={index} car={car} index={index} />
         ))}
       </div>
     </section>
