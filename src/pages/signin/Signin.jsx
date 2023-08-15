@@ -4,10 +4,11 @@ import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import useTitle from "../../components/hooks/useTitle";
+import useTitle from "../../hooks/useTitle";
 import Button from "../../components/button/Button";
 import useToast from "../../hooks/useToast";
 import SocialLogin from "../../components/shared/SocialLogin";
+import { TbFidgetSpinner } from "react-icons/tb";
 
 const Signin = () => {
   useTitle("Signin");
@@ -15,7 +16,7 @@ const Signin = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const { signIn } = useContext(AuthContext);
+  const { signIn, loading } = useContext(AuthContext);
   const { showToast } = useToast();
   const {
     register,
@@ -64,7 +65,6 @@ const Signin = () => {
               </span>
             )}
           </div>
-
           <div className="mb-4">
             <label className="block mb-1 font-medium">Password</label>
             <input
@@ -78,8 +78,13 @@ const Signin = () => {
               </span>
             )}
           </div>
-
-          <Button children="Signin" colors="secondary" size="full" />
+          <Button type="submit" colors="secondary" size="full">
+            {loading ? (
+              <TbFidgetSpinner className="m-auto animate-spin" size={24} />
+            ) : (
+              "Signin"
+            )}
+          </Button>
         </form>
 
         {/* social login */}

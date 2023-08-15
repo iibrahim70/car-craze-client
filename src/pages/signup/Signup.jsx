@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import "toastify-js/src/toastify.css";
-import useTitle from "../../components/hooks/useTitle";
+import useTitle from "../../hooks/useTitle";
 import Button from "../../components/button/Button";
 import useToast from "../../hooks/useToast";
 import SocialLogin from "../../components/shared/SocialLogin";

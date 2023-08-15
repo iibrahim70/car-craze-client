@@ -2,7 +2,7 @@ import React from "react";
 import Hero from "../../components/hero/Hero";
 import ShopCategory from "../../components/shopcategory/ShopCategory";
 import PhotoGalary from "../../components/galary/PhotoGalary";
-import useTitle from "../../components/hooks/useTitle";
+import useTitle from "../../hooks/useTitle";
 import Testimonial from "../../components/testimonial/Testimonial";
 import OurServices from "../../components/ourservices/OurServices";
 import ChooseUs from "../../components/chooseus/ChooseUs";

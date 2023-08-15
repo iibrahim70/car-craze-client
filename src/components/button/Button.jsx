@@ -29,14 +29,14 @@ const buttonVariants = cva(
 
 const Button = ({ to, onClick, type, colors, size, children }) => {
   return (
-    <Link
+    <button
       to={to}
       onClick={onClick}
       type={type}
       className={clsx(buttonVariants({ colors, size }))}
     >
       {children}
-    </Link>
+    </button>
   );
 };
 
