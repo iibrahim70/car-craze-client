@@ -1,5 +1,5 @@
 import React from "react";
-import useTitle from "../../components/hooks/useTitle";
+import useTitle from "../../hooks/useTitle";
 import { useLoaderData } from "react-router-dom";
 import Button from "../../components/button/Button";
 

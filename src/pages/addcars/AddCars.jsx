@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import "toastify-js/src/toastify.css";
-import useTitle from "../../components/hooks/useTitle";
+import useTitle from "../../hooks/useTitle";
 import axios from "axios";
 import Button from "../../components/button/Button";
 import useToast from "../../hooks/useToast";
@@ -44,8 +44,9 @@ const AddCars = () => {
           <div className="mb-4">
             <label className="block mb-1 font-medium">Seller Name</label>
             <input
-              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
+              type="text"
               defaultValue={user?.displayName}
+              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               {...register("sellerName", { required: true })}
             />
             {errors.sellerName && (
@@ -58,8 +59,9 @@ const AddCars = () => {
           <div className="mb-4">
             <label className="block mb-1 font-medium">Seller Email</label>
             <input
-              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
+              type="text"
               defaultValue={user?.email}
+              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               {...register("sellerEmail", { required: true })}
             />
             {errors.sellerEmail && (
@@ -72,6 +74,7 @@ const AddCars = () => {
           <div className="mb-4">
             <label className="block mb-1 font-medium">Car Name</label>
             <input
+              type="text"
               className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               {...register("name", { required: true })}
             />
@@ -87,6 +90,7 @@ const AddCars = () => {
               Picture URL of the Car
             </label>
             <input
+              type="text"
               className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               {...register("image", { required: true })}
             />
@@ -100,6 +104,7 @@ const AddCars = () => {
           <div className="mb-4">
             <label className="block mb-1 font-medium">Price</label>
             <input
+              type="number"
               className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               {...register("price", { required: true, min: 0 })}
             />
@@ -113,8 +118,9 @@ const AddCars = () => {
           <div className="mb-4">
             <label className="block mb-1 font-medium">Rating</label>
             <input
+              type="number"
               className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
-              {...register("rating", { required: true, min: 0, max: 6 })}
+              {...register("rating", { required: true, min: 0, max: 5 })}
             />
             {errors.rating && (
               <span className="text-red-500 text-sm">
@@ -126,6 +132,7 @@ const AddCars = () => {
           <div className="mb-4">
             <label className="block mb-1 font-medium">Available Quantity</label>
             <input
+              type="number"
               className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               {...register("quantity", { required: true, min: 0 })}
             />
@@ -139,6 +146,7 @@ const AddCars = () => {
           <div className="mb-4">
             <label className="block mb-1.5 font-medium">Category</label>
             <select
+              type="text"
               className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
               {...register("category", { required: true })}
             >
@@ -157,6 +165,7 @@ const AddCars = () => {
         <div className="mb-4">
           <label className="block mb-1 font-medium">Detail Description</label>
           <textarea
+            type="text"
             rows="4"
             className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
             {...register("description", { required: true })}
