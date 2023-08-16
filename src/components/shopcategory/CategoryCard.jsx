@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import Rating from "react-rating";
 import Aos from "aos";
-import Button from "../button/Button";
+import Button, { buttonVariants } from "../button/Button";
+import { Link } from "react-router-dom";
 
 const CategoryCard = ({ item, index }) => {
   const { _id, name, image, price, rating, category } = item;
@@ -39,12 +40,12 @@ const CategoryCard = ({ item, index }) => {
 
         <div className="flex justify-between items-center">
           <h4 className="text-lg font-semibold">${price}</h4>
-          <Button
+          <Link
             to={`/car-details/${_id}`}
-            children="Details"
-            colors="purple"
-            size="small"
-          />
+            className={buttonVariants({ size: "small" })}
+          >
+            Details
+          </Link>
         </div>
       </div>
     </div>

@@ -67,7 +67,7 @@ const ShopCategory = () => {
         <div
           onClick={() => handleTabClick("Sedan")}
           className={`shadow-xl px-5 py-3 text-black cursor-pointer font-medium rounded ${
-            activeTab === "Sedan" ? "bg-red text-white" : ""
+            activeTab === "Sedan" ? "bg-viking text-white" : ""
           }`}
         >
           Sedan
@@ -76,7 +76,7 @@ const ShopCategory = () => {
         <div
           onClick={() => handleTabClick("SUV")}
           className={`shadow-xl px-5 py-3 text-black cursor-pointer font-medium rounded ${
-            activeTab === "SUV" ? "bg-red text-white" : ""
+            activeTab === "SUV" ? "bg-viking text-white" : ""
           }`}
         >
           Sport Utility Vehicle
@@ -85,7 +85,7 @@ const ShopCategory = () => {
         <div
           onClick={() => handleTabClick("Sports Car")}
           className={`shadow-xl px-5 py-3 text-black cursor-pointer font-medium rounded ${
-            activeTab === "Sports Car" ? "bg-red text-white" : ""
+            activeTab === "Sports Car" ? "bg-viking text-white" : ""
           }`}
         >
           Sports Car

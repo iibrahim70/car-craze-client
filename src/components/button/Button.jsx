@@ -1,18 +1,16 @@
 import React from "react";
 import { cva } from "class-variance-authority";
-import { Link } from "react-router-dom";
 import clsx from "clsx";
 
-const buttonVariants = cva(
+export const buttonVariants = cva(
   "inline-block text-center rounded active:scale-105 transition duration-300 ease-in-out font-medium",
   {
     variants: {
       colors: {
         primary: "bg-red hover:bg-red/90 text-white",
-        secondary: "bg-green hover:bg-green/90 text-white",
+        secondary: "bg-viking hover:bg-viking/90 text-white",
         transparent:
           "bg-transparent hover:bg-black/10 text-black border border-black",
-        purple: "bg-purple hover:bg-purple/90 text-white",
       },
       size: {
         default: "py-3 px-6",

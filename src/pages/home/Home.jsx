@@ -13,7 +13,7 @@ const Home = () => {
   useTitle("Home");
 
   return (
-    <div className="overflow-hidden pt-[64px]">
+    <div className="pt-[64px]">
       <Hero />
       <NewArrivals />
       <ShopCategory />
