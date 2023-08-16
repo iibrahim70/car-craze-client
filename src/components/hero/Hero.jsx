@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import carAnimation from "../../assets/animation/car.json";
-import Button from "../button/Button";
+import Button, { buttonVariants } from "../button/Button";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -25,7 +25,9 @@ const Hero = () => {
           perfect match for your needs and desires.
         </p>
         <div>
-          <Button to="/allcars" children="View Cars" />
+          <Link to="/allcars" className={buttonVariants()}>
+            View Cars
+          </Link>
         </div>
       </div>
 

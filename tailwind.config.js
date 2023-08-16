@@ -10,9 +10,8 @@ export default {
       colors: {
         black: "#1e212a",
         white: "#fafafa",
-        red: "#d9114a",
-        green: "#01b376",
-        purple: "#5E32C0",
+        red: "#D9114A",
+        viking: "#32b8cb",
       },
     },
   },
