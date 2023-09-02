@@ -71,10 +71,10 @@ const Testimonial = () => {
         breakpoints={swiperBreakpoints}
       >
         {reviews.map((item, index) => (
-          <SwiperSlide className="mb-10 lg:mb-20" key={index}>
+          <SwiperSlide className="mb-10 lg:mb-20 border rounded" key={index}>
             <div
               data-aos="fade-right"
-              className="rounded-xl space-y-3 p-5 shadow-xl text-center h-80 flex items-center justify-center flex-col"
+              className="space-y-3 p-5 text-center h-80 flex items-center justify-center flex-col"
             >
               <div className="avatar">
                 <div className="w-24 rounded-full">
