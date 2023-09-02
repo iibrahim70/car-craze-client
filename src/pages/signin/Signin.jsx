@@ -8,7 +8,6 @@ import useTitle from "../../hooks/useTitle";
 import Button from "../../components/button/Button";
 import useToast from "../../hooks/useToast";
 import SocialLogin from "../../components/shared/SocialLogin";
-import { TbFidgetSpinner } from "react-icons/tb";
 
 const Signin = () => {
   useTitle("Signin");
@@ -16,7 +15,7 @@ const Signin = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const { signIn, loading } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
   const { showToast } = useToast();
   const {
     register,
@@ -79,11 +78,7 @@ const Signin = () => {
             )}
           </div>
           <Button type="submit" colors="secondary" size="full">
-            {loading ? (
-              <TbFidgetSpinner className="m-auto animate-spin" size={24} />
-            ) : (
-              "Signin"
-            )}
+            Signin
           </Button>
         </form>
 

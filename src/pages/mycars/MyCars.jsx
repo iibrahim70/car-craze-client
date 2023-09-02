@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import useTitle from "../../hooks/useTitle";
 import { AuthContext } from "../../providers/AuthProvider";
 import MyCarsTable from "./MyCarsTable";
@@ -176,7 +176,7 @@ const MyCars = () => {
                 <input
                   type="number"
                   defaultValue={modalCar?.price}
-                  className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
+                  className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b bg-white"
                   {...register("price", { required: true })}
                 />
                 {errors.price && (
@@ -193,7 +193,7 @@ const MyCars = () => {
                 <input
                   type="number"
                   defaultValue={modalCar?.quantity}
-                  className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
+                  className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b bg-white"
                   {...register("quantity", { required: true })}
                 />
                 {errors.quantity && (
@@ -211,7 +211,7 @@ const MyCars = () => {
                   type="text"
                   rows="4"
                   defaultValue={modalCar?.description}
-                  className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
+                  className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b bg-white"
                   {...register("description", { required: true })}
                 ></textarea>
                 {errors.description && (
