@@ -15,13 +15,15 @@ const Home = () => {
   return (
     <div className="pt-[64px]">
       <Hero />
-      <NewArrivals />
-      <ShopCategory />
-      <PhotoGalary />
-      <ChooseUs />
-      <OurServices />
-      <Testimonial />
-      <BlogPost />
+      <div className="w-[90%] mx-auto">
+        <NewArrivals />
+        <ShopCategory />
+        <PhotoGalary />
+        <ChooseUs />
+        <OurServices />
+        <Testimonial />
+        <BlogPost />
+      </div>
     </div>
   );
 };

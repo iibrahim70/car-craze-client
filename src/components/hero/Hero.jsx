@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import Lottie from "lottie-react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import carAnimation from "../../assets/animation/car.json";
-import Button, { buttonVariants } from "../button/Button";
+import carVideo from "../../assets/vdo/Car.mp4";
+import { buttonVariants } from "../button/Button";
+import { BsArrowRight } from "react-icons/bs";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -12,27 +12,36 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-2 my-10 lg:my-0">
-      <div
-        data-aos="fade-up"
-        className="space-y-5 flex justify-center flex-col"
+    <section data-aos="fade-up">
+      <video
+        autoPlay
+        loop
+        muted
+        controlsList="nodownload"
+        className="video brightness-75"
       >
-        <h1 className="text-5xl lg:text-6xl font-bold">
-          Discover Your <br /> <span className="text-red">Dream</span> Car
+        <source type="video/mp4" src={carVideo} />
+      </video>
+
+      <div className="absolute top-0 h-full flex flex-col items-center justify-center space-y-5 px-10 md:px-0">
+        <h1 className="text-5xl lg:text-6xl font-bold text-white antialiased">
+          Discover Your <span className="text-red">Dream</span> Car
         </h1>
-        <p className="text-justify md:w-2/3">
-          Browse through our wide selection of top-quality vehicles and find the
-          perfect match for your needs and desires.
+        <p className="text-justify md:text-center md:w-2/3 text-white">
+          Step into a world of automotive excellence. Discover an array of
+          finely crafted vehicles, from classics to modern marvels. Explore
+          cutting-edge technology, precision engineering, and unparalleled
+          performance. Whether you're a seasoned enthusiast or just starting,
+          this is your gateway to automotive dreams. Find your perfect match
+          here.
         </p>
         <div>
           <Link to="/allcars" className={buttonVariants()}>
-            View Cars
+            <div className="flex items-center gap-2">
+              View Cars <BsArrowRight />
+            </div>
           </Link>
         </div>
-      </div>
-
-      <div data-aos="fade-down" className="flex justify-center items-center">
-        <Lottie animationData={carAnimation} loop={true} />
       </div>
     </section>
   );

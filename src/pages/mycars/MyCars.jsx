@@ -24,15 +24,12 @@ const MyCars = () => {
     reset,
   } = useForm();
 
-  const {
-    isLoading,
-    error,
-    data: myCars,
-    refetch,
-  } = useQuery(["myCars"], () =>
-    fetch(
-      `https://car-craze-server-omega.vercel.app/mycars?email=${user?.email}`
-    ).then((res) => res.json())
+  const { isLoading, error, data, refetch } = useQuery(["myCars"], () =>
+    axios
+      .get(
+        `https://car-craze-server-omega.vercel.app/mycars?email=${user?.email}`
+      )
+      .then((res) => res.data)
   );
 
   const handleDelete = (id) => {
@@ -107,18 +104,23 @@ const MyCars = () => {
     reset();
   };
 
+  if (isLoading)
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        Loading...
+      </div>
+    );
+  if (error)
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        Error: {error.message}
+      </div>
+    );
+
   return (
     <>
-      {isLoading ? (
-        <div className="flex items-center justify-center min-h-screen">
-          Loading...
-        </div>
-      ) : error ? (
-        <div className="flex items-center justify-center min-h-screen">
-          Error: {error.message}
-        </div>
-      ) : myCars.length > 0 ? (
-        <div className="mt-[104px] mb-10 md:mt-[144px] md:mb-20">
+      {data.length > 0 ? (
+        <div className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 w-[90%] mx-auto">
           <div className="overflow-x-auto">
             <table className="table w-full z-0">
               {/* table header */}
@@ -136,7 +138,7 @@ const MyCars = () => {
 
               {/* table body */}
               <tbody>
-                {myCars.map((cars) => (
+                {data.map((cars) => (
                   <MyCarsTable
                     key={cars._id}
                     cars={cars}

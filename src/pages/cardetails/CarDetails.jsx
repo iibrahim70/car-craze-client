@@ -19,7 +19,7 @@ const CarDetails = () => {
   } = cars;
 
   return (
-    <div className="container mt-[104px] mb-10 md:mt-[144px] md:mb-20">
+    <div className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 w-[90%] mx-auto">
       <div className="flex items-center gap-10 mb-5">
         <img className="w-[50%] h-full" src={image} alt="" />
         <div className="space-y-5">

@@ -29,11 +29,6 @@ html {
   scroll-behavior: smooth !important;
 }
 
-/* section height */
-section {
-  min-height: calc(100vh - 64px);
-}
-
 /* font style and colors */
 h1,
 h2,
@@ -48,6 +43,18 @@ p,
 a {
   color: #1e212a;
   font-family: "Poppins", sans-serif;
+}
+
+/* section height */
+section {
+  min-height: calc(100vh - 64px);
+}
+
+/* hero section video */
+.video {
+  width: 100% !important;
+  height: calc(100vh - 64px);
+  object-fit: cover;
 }
 
 /* footer text color */
