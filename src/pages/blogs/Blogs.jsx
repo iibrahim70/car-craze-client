@@ -1,11 +1,10 @@
-import React from "react";
 import Accordion from "../../components/accordion/Accordion";
 import useTitle from "../../hooks/useTitle";
 
 const Blogs = () => {
   useTitle("Blogs");
   return (
-    <div className="container mt-[104px] mb-10 md:mt-[144px] md:mb-20">
+    <div className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 w-[90%] mx-auto">
       <Accordion
         title="What is an access token and refresh token? How do they work and where should we store them on the client-side?"
         content="

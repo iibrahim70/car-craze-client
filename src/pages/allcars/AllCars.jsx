@@ -2,18 +2,15 @@ import React from "react";
 import useTitle from "../../hooks/useTitle";
 import AllCarsTable from "./AllCarsTable";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const AllCars = () => {
   useTitle("All Cars");
 
-  const {
-    isLoading,
-    error,
-    data: allCars,
-  } = useQuery(["allCars"], () =>
-    fetch("https://car-craze-server-omega.vercel.app/cars?limit=20").then(
-      (res) => res.json()
-    )
+  const { isLoading, error, data } = useQuery(["allCars"], () =>
+    axios
+      .get("https://car-craze-server-omega.vercel.app/cars?limit=20")
+      .then((res) => res.data)
   );
 
   if (isLoading)
@@ -30,7 +27,7 @@ const AllCars = () => {
     );
 
   return (
-    <div className="mt-[104px] mb-10 md:mt-[144px] md:mb-20">
+    <div className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 w-[90%] mx-auto">
       <div className="overflow-x-auto">
         <table className="table w-full z-0">
           {/* table header */}
@@ -47,7 +44,7 @@ const AllCars = () => {
 
           {/* table body */}
           <tbody>
-            {allCars.map((cars) => (
+            {data.map((cars) => (
               <AllCarsTable key={cars._id} cars={cars} />
             ))}
           </tbody>

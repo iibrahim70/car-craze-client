@@ -10,10 +10,7 @@ const OurServices = () => {
   return (
     <div className="grid md:grid-cols-2 gap-10 justify-between items-center">
       <div data-aos="zoom-in-up">
-        <img
-          src="https://i.ibb.co/0GtP8Z1/full-length-confident-young-businesswoman-coming-out-her-vehicle-496169-1184.jpg"
-          alt=""
-        />
+        <img src="https://i.ibb.co/ww9Q7t1/Lady.jpg" className="rounded" />
       </div>
       <div data-aos="zoom-in-down">
         <h2 className="text-3xl lg:text-4xl font-bold">
@@ -24,7 +21,7 @@ const OurServices = () => {
           <Button children="Sedan" colors="secondary" size="small" />
           <Button children="SUV" colors="secondary" size="small" />
         </div>
-        <p className="mt-5">
+        <p className="mt-5 text-justify">
           Discover a wide range of cars, including sleek Sedans, versatile SUVs,
           and powerful Sports Cars. Whether you're looking for comfort, space,
           or adrenaline-pumping performance, our collection has the perfect ride

@@ -34,7 +34,7 @@ const NewArrivals = () => {
     );
 
   return (
-    <section>
+    <section className="mt-10 lg:mt-20">
       <div data-aos="fade-down">
         <SectionTitle
           title="New Car Arrivals"
