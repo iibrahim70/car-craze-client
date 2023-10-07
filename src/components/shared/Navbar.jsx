@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import logo from "../../assets/logo/black-logo.ico";
 import ActiveLink from "../../routes/ActiveLink";
-import { buttonVariants } from "../button/Button";
+import Button, { buttonVariants } from "../button/Button";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -25,7 +25,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0 w-full shadow-lg bg-white z-10">
+    <div className="fixed top-0 w-[100%] shadow-lg bg-white z-10">
       <div className="navbar w-[90%] mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -72,12 +72,9 @@ const Navbar = () => {
           )}
 
           {user ? (
-            <button
-              onClick={handleLogout}
-              className={buttonVariants({ colors: "secondary", size: "small" })}
-            >
+            <Button onClick={handleLogout} colors="secondary" size="small">
               Logout
-            </button>
+            </Button>
           ) : (
             <Link
               to="/signin"

@@ -1,7 +1,6 @@
-import React from "react";
 import Hero from "../../components/hero/Hero";
 import ShopCategory from "../../components/shopcategory/ShopCategory";
-import PhotoGalary from "../../components/galary/PhotoGalary";
+import PhotoGallery from "../../components/gallery/PhotoGallery";
 import useTitle from "../../hooks/useTitle";
 import Testimonial from "../../components/testimonial/Testimonial";
 import OurServices from "../../components/ourservices/OurServices";
@@ -15,10 +14,10 @@ const Home = () => {
   return (
     <div className="pt-[64px]">
       <Hero />
-      <div className="w-[90%] mx-auto">
+      <div className="wrapper">
         <NewArrivals />
         <ShopCategory />
-        <PhotoGalary />
+        <PhotoGallery />
         <ChooseUs />
         <OurServices />
         <Testimonial />
