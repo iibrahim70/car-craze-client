@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import "toastify-js/src/toastify.css";
@@ -35,7 +35,7 @@ const AddCars = () => {
   };
 
   return (
-    <section className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 w-[90%] mx-auto">
+    <section className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 wrapper">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="shadow-xl p-10 rounded-lg"

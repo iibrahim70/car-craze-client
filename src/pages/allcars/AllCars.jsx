@@ -27,7 +27,7 @@ const AllCars = () => {
     );
 
   return (
-    <div className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 w-[90%] mx-auto">
+    <div className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 wrapper">
       <div className="overflow-x-auto">
         <table className="table w-full z-0">
           {/* table header */}

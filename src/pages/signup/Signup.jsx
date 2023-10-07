@@ -42,7 +42,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 w-[90%] md:w-[50%] lg:w-[90%] mx-auto">
+    <div className="grid grid-cols-1 lg:grid-cols-2 w-[90%] md:w-[50%] lg:w-[90%] mx-auto min-h-screen">
       {/* left side animation */}
       <div className="hidden lg:flex flex-col justify-center items-center">
         <div className="w-[80%]">
@@ -51,10 +51,10 @@ const Signup = () => {
       </div>
 
       {/* right side login form */}
-      <div className="shadow-xl p-10">
+      <div className="shadow-xl p-10 flex items-center justify-center flex-col w-full">
         <h2 className="text-center text-4xl font-bold mb-10">Signup</h2>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full">
           <div className="mb-4">
             <label className="block mb-1 font-medium">Name</label>
             <input
@@ -119,7 +119,7 @@ const Signup = () => {
         {/* social login */}
         <SocialLogin />
 
-        <p>
+        <p className="w-full">
           Already have an account?{" "}
           <Link className="text-[#FF4136]" to="/signin">
             Signin
