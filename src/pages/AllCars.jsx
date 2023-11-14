@@ -43,8 +43,8 @@ const AllCars = () => {
 
           {/* table body */}
           <tbody>
-            {data.map((cars) => (
-              <AllCarsTable key={cars._id} cars={cars} />
+            {data.map((item) => (
+              <AllCarsTable key={item._id} item={item} />
             ))}
           </tbody>
         </table>

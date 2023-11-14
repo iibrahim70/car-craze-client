@@ -1,12 +1,14 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import logo from "../assets/logo/black-logo.ico";
+import { Link } from "react-router-dom";
 import ActiveLink from "../routes/ActiveLink";
 import Button, { buttonVariants } from "./Button";
+import useToast from "../hooks/useToast";
+import logo from "../assets/logo/black-logo.ico";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const { showToast } = useToast();
 
   const navItems = (
     <div className="space-x-5 navItem">
@@ -20,8 +22,12 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logOut()
-      .then(() => {})
-      .catch((err) => console.log(err));
+      .then(() => {
+        showToast("Logout Successful!");
+      })
+      .catch((err) => {
+        showToast(err.message);
+      });
   };
 
   return (
@@ -56,7 +62,9 @@ const Navbar = () => {
             <img className="h-8" src={logo} alt="" />
           </Link>
         </div>
+
         <div className="navbar-center hidden lg:flex">{navItems}</div>
+
         <div className="navbar-end md:gap-10">
           {user && (
             <div

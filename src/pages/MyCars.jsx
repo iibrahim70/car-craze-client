@@ -138,10 +138,10 @@ const MyCars = () => {
 
               {/* table body */}
               <tbody>
-                {data.map((cars) => (
+                {data.map((item) => (
                   <MyCarsTable
-                    key={cars._id}
-                    cars={cars}
+                    key={item._id}
+                    cars={item}
                     handleDelete={handleDelete}
                     handleUpdate={handleUpdate}
                   />
