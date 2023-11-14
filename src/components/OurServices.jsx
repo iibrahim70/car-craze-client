@@ -7,11 +7,13 @@ const OurServices = () => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
+
   return (
     <div className="grid md:grid-cols-2 gap-10 justify-between items-center">
       <div data-aos="zoom-in-up">
         <img src="https://i.ibb.co/ww9Q7t1/Lady.jpg" className="rounded" />
       </div>
+
       <div data-aos="zoom-in-down">
         <h2 className="text-3xl lg:text-4xl font-bold">
           Explore Our Diverse Car Collection
