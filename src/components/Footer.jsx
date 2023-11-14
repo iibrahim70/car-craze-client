@@ -8,18 +8,21 @@ const Footer = () => {
           <img className="h-8 mb-5" src={logo} alt="" />
           <p>© 2023 Car Craze Ltd - All rights reserved.</p>
         </div>
+
         <div>
           <p className="font-bold mb-2 uppercase">Services</p>
           <a className="link link-hover">Sports Car</a>
           <a className="link link-hover">Sedan</a>
           <a className="link link-hover">Police Car</a>
         </div>
+
         <div>
           <p className="font-bold mb-2 uppercase">Company</p>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
           <a className="link link-hover">Privacy Policy</a>
         </div>
+
         <div>
           <p className="font-bold mb-2 uppercase">Social</p>
           <a className="link link-hover">Facebook</a>
