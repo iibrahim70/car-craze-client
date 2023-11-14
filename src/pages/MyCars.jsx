@@ -104,18 +104,13 @@ const MyCars = () => {
     reset();
   };
 
-  if (isLoading)
+  if (isLoading || error) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        Loading...
+        {isLoading ? "Loading..." : `Error: ${error.message}`}
       </div>
     );
-  if (error)
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        Error: {error.message}
-      </div>
-    );
+  }
 
   return (
     <>
@@ -141,7 +136,7 @@ const MyCars = () => {
                 {data.map((item) => (
                   <MyCarsTable
                     key={item._id}
-                    cars={item}
+                    item={item}
                     handleDelete={handleDelete}
                     handleUpdate={handleUpdate}
                   />

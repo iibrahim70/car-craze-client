@@ -1,16 +1,16 @@
 import useTitle from "../hooks/useTitle";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Swal from "sweetalert2";
 import Button from "../components/Button";
-import useToast from "../hooks/useToast";
-import "toastify-js/src/toastify.css";
 
 const AddCars = () => {
   useTitle("Add Cars");
   const { user } = useContext(AuthContext);
-  const { showToast } = useToast();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -19,19 +19,34 @@ const AddCars = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (cars) => {
-    axios
-      .post("https://car-craze-server-omega.vercel.app/cars", cars)
-      .then((response) => {
-        console.log(response.data);
-        if (response.data.insertedId) {
-          showToast("Your Toy Is Added Successfully!");
-          reset();
-        }
-      })
-      .catch((error) => {
-        console.error("Error adding car:", error);
-      });
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post(
+        "https://car-craze-server-omega.vercel.app/cars",
+        data
+      );
+      reset();
+      if (response.status === 200) {
+        navigate("/mycars");
+        Swal.fire({
+          icon: "success",
+          title: "Car Added Successfully!",
+          timer: 1500,
+        });
+      } else {
+        Swal.fire(
+          "Error",
+          "An error occurred while adding the car. Please try again.",
+          "error"
+        );
+      }
+    } catch (error) {
+      Swal.fire(
+        "Error",
+        "An error occurred while adding the car. Please try again.",
+        "error"
+      );
+    }
   };
 
   return (

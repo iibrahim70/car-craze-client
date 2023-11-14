@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
-import ActiveLink from "../routes/ActiveLink";
+import ActiveLink from "./ActiveLink";
 import Button, { buttonVariants } from "./Button";
 import useToast from "../hooks/useToast";
 import logo from "../assets/logo/black-logo.ico";
