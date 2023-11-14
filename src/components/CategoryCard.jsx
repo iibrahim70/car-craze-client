@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { buttonVariants } from "./Button";
 import Rating from "react-rating";
 import Aos from "aos";
+import "aos/dist/aos.css";
 
 const CategoryCard = ({ item, index }) => {
   const { _id, name, image, price, rating, category } = item;

@@ -1,23 +1,20 @@
 import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import ArrivalsCard from "./ArrivalsCard";
+import axios from "axios";
 import Aos from "aos";
-import "aos/dist/aos.css";
+import ArrivalsCard from "./ArrivalsCard";
 import SectionTitle from "./SectionTitle";
+import "aos/dist/aos.css";
 
 const NewArrivals = () => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
 
-  const {
-    isLoading,
-    error,
-    data: newCars,
-  } = useQuery(["newCars"], () =>
-    fetch("https://car-craze-server-omega.vercel.app/new-cars").then((res) =>
-      res.json()
-    )
+  const { isLoading, error, data } = useQuery(["newCars"], () =>
+    axios
+      .get("https://car-craze-server-omega.vercel.app/new-cars")
+      .then((res) => res.data)
   );
 
   if (isLoading)
@@ -43,8 +40,8 @@ const NewArrivals = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-10">
-        {newCars.map((car, index) => (
-          <ArrivalsCard key={index} car={car} index={index} />
+        {data.map((item, index) => (
+          <ArrivalsCard key={item._id} item={item} index={index} />
         ))}
       </div>
     </section>
