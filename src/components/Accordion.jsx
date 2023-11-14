@@ -33,12 +33,7 @@ const Accordion = ({ title, content }) => {
         </svg>
       </div>
 
-      <div
-        className={clsx(
-          "transition-height duration-300",
-          isOpen ? "h-auto" : "h-0"
-        )}
-      >
+      <div className={clsx("transition-height", isOpen ? "h-auto" : "h-0")}>
         <div className="p-4">
           <p className="text-gray-600">{content}</p>
         </div>
