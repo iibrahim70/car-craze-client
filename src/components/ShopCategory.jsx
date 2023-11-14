@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
-import CategoryCard from "./CategoryCard";
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import clsx from "clsx";
 import Aos from "aos";
-import "aos/dist/aos.css";
 import SectionTitle from "./SectionTitle";
+import CategoryCard from "./CategoryCard";
+import "aos/dist/aos.css";
 
 const ShopCategory = () => {
   useEffect(() => {
@@ -12,47 +14,25 @@ const ShopCategory = () => {
 
   const [activeTab, setActiveTab] = useState("Sedan");
 
-  const {
-    isLoading,
-    error,
-    data: categoryData,
-  } = useQuery(["category"], () =>
-    fetch("https://car-craze-server-omega.vercel.app/cars").then((res) =>
-      res.json()
-    )
+  const { isLoading, error, data } = useQuery(["category"], () =>
+    axios
+      .get("https://car-craze-server-omega.vercel.app/cars")
+      .then((res) => res.data)
   );
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
   };
 
-  let filteredData = categoryData;
-
-  if (!isLoading && !error) {
-    if (activeTab === "Sedan")
-      filteredData = categoryData.filter((data) => data.category === "Sedan");
-
-    if (activeTab === "SUV")
-      filteredData = categoryData.filter((data) => data.category === "SUV");
-
-    if (activeTab === "Sports Car")
-      filteredData = categoryData.filter(
-        (data) => data.category === "Sports Car"
-      );
+  if (isLoading || error) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        {isLoading ? "Loading..." : `Error: ${error.message}`}
+      </div>
+    );
   }
 
-  if (isLoading)
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        Loading...
-      </div>
-    );
-  if (error)
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        Error: {error.message}
-      </div>
-    );
+  const filterData = data.filter((item) => item.category === activeTab);
 
   return (
     <section className="my-10 lg:my-20">
@@ -64,36 +44,22 @@ const ShopCategory = () => {
       </div>
 
       <div className="flex gap-5">
-        <div
-          onClick={() => handleTabClick("Sedan")}
-          className={`shadow-xl px-5 py-3 text-black cursor-pointer font-medium rounded ${
-            activeTab === "Sedan" ? "bg-viking text-white" : ""
-          }`}
-        >
-          Sedan
-        </div>
-
-        <div
-          onClick={() => handleTabClick("SUV")}
-          className={`shadow-xl px-5 py-3 text-black cursor-pointer font-medium rounded ${
-            activeTab === "SUV" ? "bg-viking text-white" : ""
-          }`}
-        >
-          Sport Utility Vehicle
-        </div>
-
-        <div
-          onClick={() => handleTabClick("Sports Car")}
-          className={`shadow-xl px-5 py-3 text-black cursor-pointer font-medium rounded ${
-            activeTab === "Sports Car" ? "bg-viking text-white" : ""
-          }`}
-        >
-          Sports Car
-        </div>
+        {["Sedan", "SUV", "Sports Car"].map((item) => (
+          <button
+            key={item}
+            onClick={() => handleTabClick(item)}
+            className={clsx(
+              "shadow-xl px-5 py-3 text-black cursor-pointer font-medium rounded",
+              activeTab === item ? "bg-viking text-white" : ""
+            )}
+          >
+            {item}
+          </button>
+        ))}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 pt-5">
-        {filteredData.map((item, index) => (
+        {filterData.map((item, index) => (
           <CategoryCard key={index} item={item} index={index} />
         ))}
       </div>
