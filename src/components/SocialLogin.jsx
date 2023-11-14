@@ -14,8 +14,8 @@ const SocialLogin = () => {
 
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then(() => {
-        showToast("Welcome Back To Car Craze!");
+      .then((res) => {
+        showToast(`Welcome Back ${res.user.displayName}!`);
         navigate(from);
       })
       .catch((err) => {

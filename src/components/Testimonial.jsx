@@ -1,51 +1,32 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import Aos from "aos";
-import "aos/dist/aos.css";
-import "swiper/css";
 import SectionTitle from "./SectionTitle";
+import "swiper/css";
+import "swiper/css/pagination";
+import "aos/dist/aos.css";
 
 const Testimonial = () => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
 
-  const {
-    isLoading,
-    error,
-    data: reviews,
-  } = useQuery(["reviews"], () =>
-    fetch("https://car-craze-server-omega.vercel.app/reviews").then((res) =>
-      res.json()
-    )
+  const { isLoading, error, data } = useQuery(["reviews"], () =>
+    axios
+      .get("https://car-craze-server-omega.vercel.app/reviews")
+      .then((res) => res.data)
   );
 
-  if (isLoading)
+  if (isLoading || error) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        Loading...
+        {isLoading ? "Loading..." : `Error: ${error.message}`}
       </div>
     );
-  if (error)
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        Error: {error.message}
-      </div>
-    );
-
-  const swiperBreakpoints = {
-    320: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    1280: {
-      slidesPerView: 3,
-    },
-  };
+  }
 
   return (
     <div className="mt-10 lg:mt-20">
@@ -57,20 +38,24 @@ const Testimonial = () => {
       </div>
 
       <Swiper
+        slidesPerView={1}
         spaceBetween={30}
-        centeredSlides={true}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        }}
         autoplay={{
-          delay: 2500,
+          delay: 1000,
           disableOnInteraction: false,
         }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
         modules={[Autoplay]}
-        breakpoints={swiperBreakpoints}
+        className="mySwiper"
       >
-        {reviews.map((item, index) => (
+        {data.map((item, index) => (
           <SwiperSlide className="mb-10 lg:mb-20 border rounded" key={index}>
             <div
               data-aos="fade-right"
@@ -81,6 +66,7 @@ const Testimonial = () => {
                   <img src={item.image} alt={`Photo of ${item.name}`} />
                 </div>
               </div>
+
               <p>{item.review}</p>
               <h4 className="text-lg font-semibold">{item.name}</h4>
               <p>{item.work_position}</p>
