@@ -1,13 +1,7 @@
 import { useEffect } from "react";
 import Aos from "aos";
-import "aos/dist/aos.css";
-import imageOne from "../assets/choose-us/best-deals.png";
-import imageTwo from "../assets/choose-us/best-sales.png";
-import imageThree from "../assets/choose-us/customer.png";
-import imageFour from "../assets/choose-us/good-quality.gif";
-import imageFive from "../assets/choose-us/expert.png";
-import imageSix from "../assets/choose-us/satisfaction.png";
 import SectionTitle from "./SectionTitle";
+import "aos/dist/aos.css";
 
 const ChooseUs = () => {
   useEffect(() => {
@@ -19,37 +13,37 @@ const ChooseUs = () => {
       title: "Unmatched Selection",
       description:
         "Discover a diverse range of top-quality vehicles, ensuring you find the perfect fit for your lifestyle.",
-      image: imageFour,
+      image: "https://i.ibb.co/YP2d857/good-quality.gif",
     },
     {
       title: "Customer-Centric Approach",
       description:
         "Experience exceptional service from our dedicated team, committed to your satisfaction.",
-      image: imageSix,
+      image: "https://i.ibb.co/m0TcHm2/satisfaction.png",
     },
     {
       title: "Best Deals and Savings",
       description:
         "Enjoy competitive pricing, exclusive discounts, and special offers on your dream car.",
-      image: imageOne,
+      image: "https://i.ibb.co/dm5dwr6/best-deals.png",
     },
     {
       title: "Seamless Financing",
       description:
         "Benefit from hassle-free financing options tailored to your budget and needs.",
-      image: imageTwo,
+      image: "https://i.ibb.co/bHbgh7S/best-sales.png",
     },
     {
       title: "Transparent Transactions",
       description:
         "Trust in our upfront pricing and clear documentation for a stress-free buying process.",
-      image: imageThree,
+      image: "https://i.ibb.co/HPQsBZT/customer.png",
     },
     {
       title: "Expert Guidance",
       description:
         "Rely on our knowledgeable staff for expert advice on models, features, and more.",
-      image: imageFive,
+      image: "https://i.ibb.co/jrcMb0X/expert.png",
     },
   ];
 
