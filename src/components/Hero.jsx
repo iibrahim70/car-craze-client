@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import carVideo from "../assets/vdo/car.mp4";
 import { buttonVariants } from "./Button";
 import { BsArrowRight } from "react-icons/bs";
 import Aos from "aos";
+import carVideo from "../assets/vdo/car.mp4";
 import "aos/dist/aos.css";
 
 const Hero = () => {
@@ -38,6 +38,7 @@ const Hero = () => {
           this is your gateway to automotive dreams. Find your perfect match
           here.
         </p>
+
         <div>
           <Link to="/allcars" className={buttonVariants()}>
             <div className="flex items-center gap-2">

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { HiArrowNarrowRight } from "react-icons/hi";
 
-const AllCarsTable = ({ cars }) => {
-  const { _id, sellerName, name, category, price, quantity } = cars;
+const AllCarsTable = ({ item }) => {
+  const { _id, sellerName, name, category, price, quantity } = item;
 
   return (
     <>

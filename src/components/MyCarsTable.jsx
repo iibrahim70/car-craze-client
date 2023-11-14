@@ -1,9 +1,8 @@
-import React from "react";
 import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 
-const MyCarsTable = ({ cars, handleDelete, handleUpdate }) => {
-  const { _id, sellerName, name, category, price, quantity } = cars;
+const MyCarsTable = ({ item, handleDelete, handleUpdate }) => {
+  const { _id, sellerName, name, category, price, quantity } = item;
 
   return (
     <>
