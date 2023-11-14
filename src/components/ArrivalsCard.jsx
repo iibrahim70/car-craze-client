@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { BsFillFuelPumpFill, BsFillPeopleFill, BsGear } from "react-icons/bs";
-import Button from "./Button";
 import Aos from "aos";
+import Button from "./Button";
 
 const ArrivalsCard = ({ car, index }) => {
   useEffect(() => {
