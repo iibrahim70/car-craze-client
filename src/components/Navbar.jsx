@@ -16,7 +16,7 @@ const Navbar = () => {
       <ActiveLink to="allcars">All Cars</ActiveLink>
       <ActiveLink to="mycars">My Cars</ActiveLink>
       <ActiveLink to="addcars">Add Cars</ActiveLink>
-      <ActiveLink to="blogs">Blogs</ActiveLink>
+      <ActiveLink to="qna">Qna</ActiveLink>
     </div>
   );
 

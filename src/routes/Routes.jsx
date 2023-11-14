@@ -7,7 +7,7 @@ import AddCars from "../pages/AddCars";
 import AllCars from "../pages/AllCars";
 import MyCars from "../pages/MyCars";
 import CarDetails from "../pages/CarDetails";
-import Blogs from "../pages/Blogs";
+import Qna from "../pages/Qna";
 import ErrorPage from "../pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 
@@ -48,8 +48,8 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/blogs",
-        element: <Blogs />,
+        path: "/qna",
+        element: <Qna />,
       },
     ],
   },
