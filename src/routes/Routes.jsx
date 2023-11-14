@@ -1,15 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
-import Home from "../pages/home/Home";
-import Signup from "../pages/signup/Signup";
-import Blogs from "../pages/blogs/Blogs";
-import ErrorPage from "../pages/errorpage/ErrorPage";
-import CarDetails from "../pages/cardetails/CarDetails";
+import Home from "../pages/Home";
+import Signup from "../pages/Signup";
+import Signin from "../pages/Signin";
+import AddCars from "../pages/AddCars";
+import AllCars from "../pages/AllCars";
+import MyCars from "../pages/MyCars";
+import CarDetails from "../pages/CarDetails";
+import Blogs from "../pages/Blogs";
+import ErrorPage from "../pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
-import AllCars from "../pages/allcars/AllCars";
-import AddCars from "../pages/addcars/AddCars";
-import MyCars from "../pages/mycars/MyCars";
-import Signin from "../pages/signin/Signin";
 
 const router = createBrowserRouter([
   {
