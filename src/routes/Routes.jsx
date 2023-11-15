@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import axios from "axios";
 import Main from "../layout/Main";
 import Home from "../pages/Home";
 import Signup from "../pages/Signup";
@@ -29,7 +30,9 @@ const router = createBrowserRouter([
         path: "/car-details/:id",
         element: <CarDetails />,
         loader: ({ params }) =>
-          fetch(`https://car-craze-server-omega.vercel.app/cars/${params.id}`),
+          axios.get(
+            `https://car-craze-server-omega.vercel.app/cars/${params.id}`
+          ),
       },
       {
         path: "/mycars",

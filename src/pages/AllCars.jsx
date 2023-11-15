@@ -1,7 +1,7 @@
 import useTitle from "../hooks/useTitle";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import AllCarsTable from "../components/AllCarsTable";
+import axios from "axios";
 
 const AllCars = () => {
   useTitle("All Cars");
@@ -12,18 +12,13 @@ const AllCars = () => {
       .then((res) => res.data)
   );
 
-  if (isLoading)
+  if (isLoading || error) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        Loading...
+        {isLoading ? "Loading..." : `Error: ${error.message}`}
       </div>
     );
-  if (error)
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        Error: {error.message}
-      </div>
-    );
+  }
 
   return (
     <div className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 wrapper">
