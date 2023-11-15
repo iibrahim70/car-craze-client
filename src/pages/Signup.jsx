@@ -8,7 +8,6 @@ import Button from "../components/Button";
 import useToast from "../hooks/useToast";
 import SocialLogin from "../components/SocialLogin";
 import loginAnimation from "../assets/animation/login.json";
-import "toastify-js/src/toastify.css";
 
 const Signup = () => {
   useTitle("Signup");
@@ -32,7 +31,7 @@ const Signup = () => {
       .then(() => {
         navigate(from, { replace: true });
         updateUserProfile(name, photoUrl);
-        showToast("Signup successful! Welcome to our website.");
+        showToast("Signup successful!");
         reset();
       })
       .catch((err) => {
@@ -108,12 +107,7 @@ const Signup = () => {
             )}
           </div>
 
-          <Button
-            type="submit"
-            children="Signup"
-            colors="secondary"
-            size="full"
-          />
+          <Button children="Signup" colors="secondary" size="full" />
         </form>
 
         {/* social login */}

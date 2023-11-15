@@ -64,6 +64,7 @@ const Signin = () => {
               </span>
             )}
           </div>
+
           <div className="mb-4">
             <label className="block mb-1 font-medium">Password</label>
             <input
@@ -77,7 +78,8 @@ const Signin = () => {
               </span>
             )}
           </div>
-          <Button type="submit" colors="secondary" size="full">
+
+          <Button colors="secondary" size="full">
             Signin
           </Button>
         </form>

@@ -15,7 +15,7 @@ const CarDetails = () => {
     rating,
     quantity,
     description,
-  } = cars;
+  } = cars.data;
 
   return (
     <div className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 wrapper">

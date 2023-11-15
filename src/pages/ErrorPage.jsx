@@ -12,9 +12,11 @@ const ErrorPage = () => {
     <div className="flex flex-col items-center justify-center">
       <div className="max-w-lg text-center space-y-5">
         <Lottie animationData={errorAnimation} loop={true} />
+
         <p className="text-xl font-medium md:text-2xl text-[#212121]">
           Opps!! {error?.message}
         </p>
+
         <Link to="/" className={buttonVariants({ colors: "secondary" })}>
           Back to homepage
         </Link>
