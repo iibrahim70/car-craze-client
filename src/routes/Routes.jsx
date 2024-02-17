@@ -2,15 +2,15 @@ import { createBrowserRouter } from "react-router-dom";
 import axios from "axios";
 import Main from "../layout/Main";
 import Home from "../pages/Home";
-import Signup from "../pages/Signup";
-import Signin from "../pages/Signin";
 import AddCars from "../pages/AddCars";
 import AllCars from "../pages/AllCars";
 import MyCars from "../pages/MyCars";
 import CarDetails from "../pages/CarDetails";
-import Qna from "../pages/Qna";
 import ErrorPage from "../pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import Qna from "../pages/Qna";
+import Signin from "../pages/auth/Signin";
+import Signup from "../pages/auth/Signup";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Home />,
       },
       {

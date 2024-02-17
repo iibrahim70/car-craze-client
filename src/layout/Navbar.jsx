@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
-import ActiveLink from "./ActiveLink";
-import Button, { buttonVariants } from "./Button";
+import ActiveLink from "../components/ActiveLink";
+import Button, { buttonVariants } from "../components/Button";
 import useToast from "../hooks/useToast";
 import logo from "../assets/logo/black-logo.ico";
 
@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-0 w-[100%] shadow-lg bg-white z-10">
-      <div className="navbar w-[90%] mx-auto">
+      <div className="navbar section-wrapper">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

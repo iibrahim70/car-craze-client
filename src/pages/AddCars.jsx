@@ -50,7 +50,7 @@ const AddCars = () => {
   };
 
   return (
-    <section className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 wrapper">
+    <section className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 section-wrapper">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="shadow-xl p-10 rounded-lg"

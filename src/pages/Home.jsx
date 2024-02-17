@@ -12,9 +12,9 @@ const Home = () => {
   useTitle("Home");
 
   return (
-    <div className="pt-[64px]">
+    <main className="pt-[64px]">
       <Hero />
-      <div className="wrapper">
+      <div className="section-wrapper">
         <NewArrivals />
         <ShopCategory />
         <PhotoGallery />
@@ -23,7 +23,7 @@ const Home = () => {
         <Testimonial />
         <BlogPost />
       </div>
-    </div>
+    </main>
   );
 };
 

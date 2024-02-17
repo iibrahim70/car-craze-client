@@ -1,22 +1,22 @@
-import useTitle from "../hooks/useTitle";
-import { AuthContext } from "../providers/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Lottie from "lottie-react";
-import Button from "../components/Button";
-import useToast from "../hooks/useToast";
-import SocialLogin from "../components/SocialLogin";
-import loginAnimation from "../assets/animation/login.json";
+import Button from "../../components/Button";
+import useToast from "../../hooks/useToast";
+import SocialLogin from "../../components/SocialLogin";
+import loginAnimation from "../../assets/animation/login.json";
 
-const Signup = () => {
-  useTitle("Signup");
+const Signin = () => {
+  useTitle("Signin");
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
+  const { signIn } = useContext(AuthContext);
   const { showToast } = useToast();
-  const { createUser, updateUserProfile } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -25,13 +25,11 @@ const Signup = () => {
   } = useForm();
 
   const onSubmit = (user) => {
-    const { name, email, password, photoUrl } = user;
-
-    createUser(email, password)
+    const { email, password } = user;
+    signIn(email, password)
       .then(() => {
         navigate(from, { replace: true });
-        updateUserProfile(name, photoUrl);
-        showToast("Signup successful!");
+        showToast("Welcome back to car craze!");
         reset();
       })
       .catch((err) => {
@@ -51,22 +49,9 @@ const Signup = () => {
 
       {/* right side login form */}
       <div className="shadow-xl p-10 flex items-center justify-center flex-col w-full">
-        <h2 className="text-center text-4xl font-bold mb-10">Signup</h2>
+        <h2 className="text-center text-4xl font-bold mb-10">Login</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-          <div className="mb-4">
-            <label className="block mb-1 font-medium">Name</label>
-            <input
-              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
-              {...register("name", { required: true })}
-            />
-            {errors.name && (
-              <span className="text-red-500 text-sm">
-                This field is required
-              </span>
-            )}
-          </div>
-
           <div className="mb-4">
             <label className="block mb-1 font-medium">Email</label>
             <input
@@ -94,29 +79,18 @@ const Signup = () => {
             )}
           </div>
 
-          <div className="mb-4">
-            <label className="block mb-1 font-medium">Photo URL</label>
-            <input
-              className="w-full border-b border-black py-2 px-3 focus:outline-none focus:border-b"
-              {...register("photoUrl", { required: true })}
-            />
-            {errors.photoUrl && (
-              <span className="text-red-500 text-sm">
-                This field is required
-              </span>
-            )}
-          </div>
-
-          <Button children="Signup" colors="secondary" size="full" />
+          <Button colors="secondary" size="full">
+            Signin
+          </Button>
         </form>
 
         {/* social login */}
         <SocialLogin />
 
         <p className="w-full">
-          Already have an account?{" "}
-          <Link className="text-[#FF4136]" to="/signin">
-            Signin
+          Don't have an account yet?{" "}
+          <Link className="text-red" to="/signup">
+            Signup
           </Link>
         </p>
       </div>
@@ -124,4 +98,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Signin;

@@ -50,8 +50,8 @@ section {
   min-height: calc(100vh - 64px);
 }
 
-.wrapper {
-  @apply w-[90%] mx-auto;
+.section-wrapper {
+  @apply w-[90%] max-w-7xl mx-auto;
 }
 
 /* hero section video */

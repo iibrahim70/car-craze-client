@@ -18,7 +18,7 @@ const CarDetails = () => {
   } = cars.data;
 
   return (
-    <div className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 wrapper">
+    <div className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 section-wrapper">
       <div className="flex flex-col lg:flex-row items-center gap-10 mb-5">
         <img
           className="w-full lg:w-[50%] h-full rounded"
