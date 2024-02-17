@@ -5,7 +5,7 @@ const QNA = () => {
   useTitle("QNA");
 
   return (
-    <div className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 wrapper">
+    <div className="mt-[104px] lg:mt-[144px] mb-10 lg:mb-20 section-wrapper">
       <Accordion
         title="What is the role of the catalytic converter in a car's exhaust system?"
         content="

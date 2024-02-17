@@ -2,10 +2,10 @@ import logo from "../assets/logo/white-logo.ico";
 
 const Footer = () => {
   return (
-    <div className="bg-black footer">
-      <div className="footer w-[90%] mx-auto text-base-content py-10">
+    <footer className="bg-black footer">
+      <div className="footer section-wrapper text-base-content py-10">
         <div>
-          <img className="h-8 mb-5" src={logo} alt="" />
+          <img className="h-8 mb-5" src={logo} alt="Logo" />
           <p>© 2023 Car Craze Ltd - All rights reserved.</p>
         </div>
 
@@ -30,7 +30,7 @@ const Footer = () => {
           <a className="link link-hover">Linkedin</a>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
